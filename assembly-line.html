@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-T4038M686Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-T4038M686Q');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assembly Line - Sliceworkz</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* Step detail sections */
+    .step-detail {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+    .step-number {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--orange);
+      color: var(--white);
+      font-weight: 800;
+      font-size: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .step-detail-content h3 {
+      font-size: clamp(1.5rem, 3vw, 1.75rem);
+      margin-bottom: 1rem;
+    }
+    .step-detail-content p {
+      margin-bottom: 1rem;
+    }
+    .step-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+    .step-quotes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    .step-quotes .tag {
+      font-style: italic;
+    }
+    .step-outputs {
+      margin-top: 1.5rem;
+      padding: 1.5rem;
+      background: var(--gray-50);
+      border-radius: 12px;
+      border-left: 4px solid var(--orange);
+    }
+    .step-outputs h4 {
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--orange);
+      margin-bottom: 0.75rem;
+    }
+    .step-divider {
+      border: none;
+      border-top: 1px solid var(--gray-200);
+      margin: 3.5rem 0;
+    }
+    .characteristics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .characteristic {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      padding: 1.5rem;
+      background: var(--white);
+      border-radius: 16px;
+      border: 2px solid var(--orange);
+      text-align: left;
+    }
+    .characteristic-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .characteristic-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--orange-light);
+      color: var(--orange);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.125rem;
+      flex-shrink: 0;
+    }
+    .characteristic span {
+      font-weight: 700;
+      font-size: 1.125rem;
+      color: var(--dark);
+    }
+    .characteristic p {
+      font-size: 0.875rem;
+      color: var(--gray-600);
+      margin: 0;
+    }
+    .dual-path {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .dual-path .card {
+      text-align: center;
+    }
+    .dual-path .card h4 {
+      color: var(--orange);
+      margin-bottom: 0.5rem;
+    }
+    @media (max-width: 768px) {
+      .step-detail {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .step-number {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+      }
+      .dual-path {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <a href="index.html" class="logo"><img src="images/sliceworkz-logo-dark.svg" alt="Sliceworkz" height="28"></a>
+      <div class="nav-links" id="navLinks">
+        <div class="nav-dropdown">
+          <a href="#">Why</a>
+          <div class="dropdown-menu">
+            <a href="problem.html">The Problem</a>
+            <a href="promise.html">Our Promise</a>
+            <a href="results.html">Our Results</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="#">AI-Native Software Factory</a>
+          <div class="dropdown-menu">
+            <a href="foundations.html">Foundations</a>
+            <a href="techniques.html">Techniques</a>
+            <a href="assembly-line.html">Assembly Line</a>
+            <a href="compared.html">Compared</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="#">Services &amp; Solutions</a>
+          <div class="dropdown-menu">
+            <a href="services.html">Services</a>
+            <a href="solutions.html">Solutions</a>
+            <a href="outcomes.html">Outcomes</a>
+          </div>
+        </div>
+        <a href="open-source.html">Open Source</a>
+        <a href="about.html">About</a>
+        <a href="about.html#contact" class="btn btn-primary" style="margin-left:0.5rem;">Contact</a>
+      </div>
+      <button class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero orange-bg">
+    <div class="container">
+      <span class="badge badge-dark">Assembly Line</span>
+      <h1>From Problem to Production</h1>
+      <p class="lead">A tailored, iterative process that delivers business value at every step.</p>
+    </div>
+    <div class="page-hero-geo"></div>
+  </section>
+
+  <!-- PROCESS OVERVIEW: 5 Steps -->
+  <section class="section-gray">
+    <div class="container text-center">
+      <h2>Our 5-Step Process</h2>
+      <p class="lead mt-2" style="margin-left:auto;margin-right:auto;">Every engagement follows the same proven path -- tailored to your situation and needs.</p>
+      <div class="process-steps mt-8" style="grid-template-columns:repeat(5,1fr);">
+        <div class="process-step" style="background:white;border:2px solid var(--orange);">
+          <h4>Understand the Problem</h4>
+          <p>Grasp your business, build common understanding</p>
+        </div>
+        <div class="process-step" style="background:white;border:2px solid var(--orange);">
+          <h4>Scope &amp; Breakdown</h4>
+          <p>Define boundaries, decompose the domain</p>
+        </div>
+        <div class="process-step" style="background:white;border:2px solid var(--orange);">
+          <h4>Design The Solution</h4>
+          <p>Co-design triggers, reactions, information flow</p>
+        </div>
+        <div class="process-step" style="background:white;border:2px solid var(--orange);">
+          <h4>AI-Native Build &amp; Test</h4>
+          <p>Human-guided, AI-driven development with automated testing</p>
+        </div>
+        <div class="process-step" style="background:white;border:2px solid var(--orange);">
+          <h4>Run &amp; Support</h4>
+          <p>Integration, managed services, knowledge transfer</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS CHARACTERISTICS -->
+  <section class="section-light">
+    <div class="container text-center">
+      <h2>Process Characteristics</h2>
+      <p class="lead mt-2" style="margin-left:auto;margin-right:auto;">Not a rigid framework -- a living process shaped by your reality.</p>
+      <div class="characteristics mt-8">
+        <div class="characteristic">
+          <div class="characteristic-header">
+            <div class="characteristic-icon">&#8635;</div>
+            <span>Iterative</span>
+          </div>
+          <p>The five steps are not a one-shot sequence. We revisit them as the project evolves -- incorporating new insights, responding to business changes, and progressively deepening the solution with each iteration.</p>
+        </div>
+        <div class="characteristic">
+          <div class="characteristic-header">
+            <div class="characteristic-icon">&#9881;</div>
+            <span>Tailored</span>
+          </div>
+          <p>Our software factory is highly customised to your context. The output aligns with your corporate standards, architecture and technology choices, and integrates seamlessly into your existing environment.</p>
+        </div>
+        <div class="characteristic">
+          <div class="characteristic-header">
+            <div class="characteristic-icon">&#9734;</div>
+            <span>Integrated Team</span>
+          </div>
+          <p>No handovers, no "lost in translation". Business and IT collaborate side by side throughout the project, connected by visual techniques and the ubiquitous language of Domain-Driven Design.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 1: UNDERSTAND THE PROBLEM -->
+  <section class="section-gray" id="step-1">
+    <div class="container">
+      <div class="step-detail">
+        <div class="step-number">1</div>
+        <div class="step-detail-content">
+          <h3>Understand the Problem</h3>
+          <p>We start by deeply understanding your business. Before writing a single line of code, we immerse ourselves in your domain -- speaking your language, studying existing systems, and building a shared understanding with all stakeholders.</p>
+
+          <p>We use collaborative visual modeling techniques to discover the business domain, define the scope of the project, and build a ubiquitous language that the entire team shares.</p>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1.5rem;">
+            <div>
+              <h4 style="font-size:0.95rem;margin-bottom:0.5rem;">Domain Storytelling</h4>
+              <p style="font-size:0.875rem;color:var(--gray-600);margin-bottom:0.75rem;">Domain experts tell their stories and we capture them visually, building a shared language for the whole team.</p>
+              <img src="images/technique-domain-storytelling.svg" alt="Domain Storytelling" style="width:100%;border-radius:8px;">
+            </div>
+            <div>
+              <h4 style="font-size:0.95rem;margin-bottom:0.5rem;">Event Storming</h4>
+              <p style="font-size:0.875rem;color:var(--gray-600);margin-bottom:0.75rem;">Collaboratively explore domain events, commands, and actors to build an end-to-end overview of the business.</p>
+              <img src="images/technique-event-storming.svg" alt="Event Storming" style="width:100%;border-radius:8px;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 2: SCOPE & BREAKDOWN -->
+  <section class="section-light" id="step-2">
+    <div class="container">
+      <div class="step-detail">
+        <div class="step-number">2</div>
+        <div class="step-detail-content">
+          <h3>Scope &amp; Breakdown</h3>
+          <p>With a shared understanding of the domain in place, we decompose it into subdomains and define clear boundaries. We distinguish what is a strategic differentiator -- your core subdomains -- from supporting and generic ones. This distinction drives investment decisions, team topologies, and architectural decomposition, grounding both project organisation and software architecture deeply in business reality.</p>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1.5rem;">
+            <div>
+              <h4 style="font-size:0.95rem;margin-bottom:0.5rem;">Event Storming</h4>
+              <p style="font-size:0.875rem;color:var(--gray-600);margin-bottom:0.75rem;">Surface pivotal events and natural boundaries to decompose the domain into well-scoped subdomains.</p>
+              <img src="images/technique-event-storming.svg" alt="Event Storming" style="width:100%;border-radius:8px;">
+            </div>
+            <div>
+              <h4 style="font-size:0.95rem;margin-bottom:0.5rem;">Context Mapping</h4>
+              <p style="font-size:0.875rem;color:var(--gray-600);margin-bottom:0.75rem;">Define bounded contexts and their relationships to establish clear responsibilities, integration patterns, and team boundaries.</p>
+              <img src="images/technique-context-mapping.svg" alt="Context Mapping" style="width:100%;border-radius:8px;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 3: DESIGN THE SOLUTION -->
+  <section class="section-gray" id="step-3">
+    <div class="container">
+      <div class="step-detail">
+        <div class="step-number">3</div>
+        <div class="step-detail-content">
+          <h3>Design The Solution</h3>
+          <p>We co-design the solution together using Event Modeling -- a visual, collaborative blueprint that captures triggers, commands and the domain events they raise, business rules and invariants. This gives a clear overview of the end-to-end information flow and allows an information completeness check. The overall solution is designed as a discrete set of feature slices, each corresponding one-to-one to a feature that can be built and tested in any order. The model translates directly to code, serving as both specification and living documentation.</p>
+
+          <div style="margin-top:1.5rem;">
+            <h4 style="font-size:0.95rem;margin-bottom:0.5rem;">Event Modeling</h4>
+            <p style="font-size:0.875rem;color:var(--gray-600);margin-bottom:0.75rem;">A visual blueprint where business and technology meet. UI screens, commands, domain events, read models, and automations are laid out on a timeline -- making every feature slice visible, verifiable, and directly translatable to code.</p>
+            <img src="images/technique-event-modeling.svg" alt="Event Modeling" style="width:100%;border-radius:8px;">
+            <p style="margin-top:0.75rem;">The result is a crisp, unambiguous specification with no room for interpretation issues or misalignment. Everyone understands exactly what will be built and what won't, with the freedom to change, extend, reduce, or re-prioritize at any time.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 4: BUILD & TEST -->
+  <section class="section-light" id="step-4">
+    <div class="container">
+      <div class="step-detail">
+        <div class="step-number">4</div>
+        <div class="step-detail-content">
+          <h3>AI-Native Build &amp; Test</h3>
+          <p>We combine human expert development and AI agentic development. Human developers craft exemplary feature slices that set the standard for the project -- reflecting the architecture landscape, platform choices, company standards, and non-functional requirements. AI agents then realise additional feature slices fully in line with these examples, under human-in-the-loop supervision.</p>
+
+          <p>Feature slices can be built and tested in any order. And when changes are needed, the impact is highly predictable and easy to apply, thanks to the repetitive character of a limited set of simple, well-understood patterns.</p>
+
+          <div style="margin-top:1.5rem;">
+            <img src="images/technique-ai-native-build.svg" alt="AI-Native Build Process" style="width:100%;border-radius:8px;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 5: RUN & SUPPORT -->
+  <section class="section-gray" id="step-5">
+    <div class="container">
+      <div class="step-detail">
+        <div class="step-number">5</div>
+        <div class="step-detail-content">
+          <h3>Run &amp; Support</h3>
+          <p>We don't walk away after delivery. Your software is integrated into your environment, monitored, and supported. Whether you need managed services or a full handover, we tailor the support model to your needs.</p>
+
+          <div style="margin-top:1.5rem;">
+            <img src="images/technique-run-support.svg" alt="Managed Services or Handover" style="width:100%;border-radius:8px;">
+            <p style="margin-top:0.75rem;">In either case, you benefit from built-in monitoring and observability, side-effect free maintenance through isolated slices, and a solution that is ready to embrace future requirements without degradation of solution quality.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to start your project?</h2>
+      <p class="lead">Explore our services or get in touch to discuss how we can tailor this process to your needs.</p>
+      <div class="cta-buttons">
+        <a href="services.html" class="btn btn-primary">Our Services</a>
+        <a href="about.html#contact" class="btn btn-outline">Get in touch</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo"><img src="images/sliceworkz-logo-white.svg" alt="Sliceworkz" height="28"></div>
+          <p>Reinventing software development.<br>Focus on business.<br>Build with AI.</p>
+          <p class="mt-3" style="font-size:0.8125rem;color:rgba(255,255,255,0.4);">A brand of <a href="https://www.xt-i.com/" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.6);">XTi &ndash; Xtreme Integrations NV</a></p>
+          <div class="mt-3" style="display:flex;gap:1rem;">
+            <a href="https://www.linkedin.com/showcase/sliceworkz/about/" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.6);font-size:0.875rem;font-weight:600;">LinkedIn</a>
+          </div>
+        </div>
+        <div>
+          <h4>Sitemap</h4>
+          <ul>
+            <li><a href="problem.html">The Problem</a></li>
+            <li><a href="promise.html">Our Promise</a></li>
+            <li><a href="results.html">Our Results</a></li>
+            <li><a href="foundations.html">Foundations</a></li>
+            <li><a href="techniques.html">Techniques</a></li>
+            <li><a href="compared.html">Compared</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Services &amp; Solutions</h4>
+          <ul>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="solutions.html">Solutions</a></li>
+            <li><a href="assembly-line.html">Assembly Line</a></li>
+            <li><a href="outcomes.html">Outcomes</a></li>
+            <li><a href="open-source.html">Open Source</a></li>
+            <li><a href="about.html">About Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:+3238719960">+32 3 871 99 60</a></li>
+            <li><a href="mailto:info@sliceworkz.com">info@sliceworkz.com</a></li>
+          </ul>
+          <h4 class="mt-4">Offices (Belgium)</h4>
+          <ul>
+            <li style="color:rgba(255,255,255,0.5);font-size:0.8125rem;">Veldkant 33A, 2550 Kontich</li>
+            <li style="color:rgba(255,255,255,0.5);font-size:0.8125rem;">Guldensporenpark, Merelbeke</li>
+            <li style="color:rgba(255,255,255,0.5);font-size:0.8125rem;">Corda Campus, Hasselt</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; XTi &ndash; Xtreme Integrations NV &middot; VAT BE 474.267.543</span>
+        <span>Sliceworkz &ndash; Reinventing Software Development</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+<svg width="620" height="350" viewBox="0 0 620 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="620" height="350" rx="8" fill="white" stroke="#E0E0E0" stroke-width="2"/>
+
+  <g transform="translate(0, 26)">
+  <!-- Timeline arrow -->
+  <line x1="50" y1="150" x2="550" y2="150" stroke="#E0E0E0" stroke-width="1"/>
+  <polygon points="550,147 558,150 550,153" fill="#E0E0E0"/>
+
+  <!-- Sticky notes - Commands (blue) -->
+  <g transform="rotate(-5 109 79)">
+    <rect x="80" y="60" width="58" height="38" rx="2" fill="#1890FF"/>
+    <line x1="88" y1="72" x2="128" y2="72" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+    <line x1="88" y1="79" x2="120" y2="79" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+  </g>
+
+  <g transform="rotate(3 209 77)">
+    <rect x="180" y="58" width="58" height="38" rx="2" fill="#1890FF"/>
+    <line x1="188" y1="70" x2="228" y2="70" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+    <line x1="188" y1="77" x2="222" y2="77" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+  </g>
+
+  <g transform="rotate(-4 359 75)">
+    <rect x="330" y="56" width="58" height="38" rx="2" fill="#1890FF"/>
+    <line x1="338" y1="68" x2="378" y2="68" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+    <line x1="338" y1="75" x2="370" y2="75" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+  </g>
+
+  <g transform="rotate(6 489 79)">
+    <rect x="460" y="60" width="58" height="38" rx="2" fill="#1890FF"/>
+    <line x1="468" y1="72" x2="508" y2="72" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+    <line x1="468" y1="79" x2="500" y2="79" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+  </g>
+
+  <!-- Small yellow stickies (policies/rules) overlapping blue commands -->
+  <g transform="rotate(-7 86 63)">
+    <rect x="72" y="52" width="28" height="22" rx="2" fill="#FFD666"/>
+    <line x1="78" y1="61" x2="94" y2="61" stroke="rgba(255,255,255,0.6)" stroke-width="1.2"/>
+    <line x1="78" y1="67" x2="90" y2="67" stroke="rgba(255,255,255,0.6)" stroke-width="1.2"/>
+  </g>
+
+  <g transform="rotate(5 337 59)">
+    <rect x="323" y="48" width="28" height="22" rx="2" fill="#FFD666"/>
+    <line x1="329" y1="57" x2="345" y2="57" stroke="rgba(255,255,255,0.6)" stroke-width="1.2"/>
+    <line x1="329" y1="63" x2="341" y2="63" stroke="rgba(255,255,255,0.6)" stroke-width="1.2"/>
+  </g>
+
+  <g transform="rotate(-4 467 64)">
+    <rect x="453" y="53" width="28" height="22" rx="2" fill="#FFD666"/>
+    <line x1="459" y1="62" x2="475" y2="62" stroke="rgba(255,255,255,0.6)" stroke-width="1.2"/>
+    <line x1="459" y1="68" x2="471" y2="68" stroke="rgba(255,255,255,0.6)" stroke-width="1.2"/>
+  </g>
+
+  <!-- Sticky notes - Domain Events (orange) -->
+  <g transform="rotate(4 99 189)">
+    <rect x="70" y="170" width="58" height="38" rx="2" fill="#F26522"/>
+    <line x1="78" y1="182" x2="118" y2="182" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+    <line x1="78" y1="189" x2="112" y2="189" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+  </g>
+
+  <g transform="rotate(-6 169 187)">
+    <rect x="140" y="168" width="58" height="38" rx="2" fill="#F26522"/>
+    <line x1="148" y1="180" x2="188" y2="180" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+    <line x1="148" y1="187" x2="180" y2="187" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+  </g>
+
+  <g transform="rotate(2 249 191)">
+    <rect x="220" y="172" width="58" height="38" rx="2" fill="#F26522"/>
+    <line x1="228" y1="184" x2="268" y2="184" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+    <line x1="228" y1="191" x2="260" y2="191" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+  </g>
+
+  <g transform="rotate(-3 349 187)">
+    <rect x="320" y="168" width="58" height="38" rx="2" fill="#F26522"/>
+    <line x1="328" y1="180" x2="368" y2="180" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+    <line x1="328" y1="187" x2="358" y2="187" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+  </g>
+
+  <g transform="rotate(5 429 189)">
+    <rect x="400" y="170" width="58" height="38" rx="2" fill="#F26522"/>
+    <line x1="408" y1="182" x2="448" y2="182" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+    <line x1="408" y1="189" x2="440" y2="189" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+  </g>
+
+  <g transform="rotate(-2 509 185)">
+    <rect x="480" y="166" width="58" height="38" rx="2" fill="#F26522"/>
+    <line x1="488" y1="178" x2="528" y2="178" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+    <line x1="488" y1="185" x2="520" y2="185" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+  </g>
+
+  <!-- Actor sticky notes (green) -->
+  <g transform="rotate(-4 112 125)">
+    <rect x="90" y="110" width="44" height="30" rx="2" fill="#3DD68C" opacity="0.7"/>
+    <circle cx="104" cy="122" r="5" fill="white" opacity="0.5"/>
+    <line x1="110" y1="120" x2="126" y2="120" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+  </g>
+
+  <g transform="rotate(3 282 123)">
+    <rect x="260" y="108" width="44" height="30" rx="2" fill="#3DD68C" opacity="0.7"/>
+    <circle cx="274" cy="120" r="5" fill="white" opacity="0.5"/>
+    <line x1="280" y1="118" x2="296" y2="118" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+  </g>
+
+  <g transform="rotate(-2 462 125)">
+    <rect x="440" y="110" width="44" height="30" rx="2" fill="#3DD68C" opacity="0.7"/>
+    <circle cx="454" cy="122" r="5" fill="white" opacity="0.5"/>
+    <line x1="460" y1="120" x2="476" y2="120" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+  </g>
+
+  <!-- Hotspot / problem markers (pink) -->
+  <g transform="rotate(6 310 232)">
+    <rect x="285" y="218" width="50" height="28" rx="2" fill="#FF6B9D" opacity="0.6"/>
+    <text x="310" y="236" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="white" font-weight="600">?!</text>
+  </g>
+  </g>
+
+</svg>

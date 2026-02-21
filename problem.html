@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-T4038M686Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-T4038M686Q');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Problem - Sliceworkz</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <a href="index.html" class="logo"><img src="images/sliceworkz-logo-dark.svg" alt="Sliceworkz" height="28"></a>
+      <div class="nav-links" id="navLinks">
+        <div class="nav-dropdown">
+          <a href="#">Why</a>
+          <div class="dropdown-menu">
+            <a href="problem.html">The Problem</a>
+            <a href="promise.html">Our Promise</a>
+            <a href="results.html">Our Results</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="#">AI-Native Software Factory</a>
+          <div class="dropdown-menu">
+            <a href="foundations.html">Foundations</a>
+            <a href="techniques.html">Techniques</a>
+            <a href="assembly-line.html">Assembly Line</a>
+            <a href="compared.html">Compared</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="#">Services &amp; Solutions</a>
+          <div class="dropdown-menu">
+            <a href="services.html">Services</a>
+            <a href="solutions.html">Solutions</a>
+            <a href="outcomes.html">Outcomes</a>
+          </div>
+        </div>
+        <a href="open-source.html">Open Source</a>
+        <a href="about.html">About</a>
+        <a href="about.html#contact" class="btn btn-primary" style="margin-left:0.5rem;">Contact</a>
+      </div>
+      <button class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <section class="page-hero dark">
+    <div class="container">
+      <span class="badge badge-orange">The Problem</span>
+      <h1>Software Development Is Broken</h1>
+      <p class="lead">Most projects drown in accidental complexity, lose sight of business goals, and deliver at exponentially growing cost. Here is why.</p>
+    </div>
+    <div class="page-hero-geo"></div>
+  </section>
+
+  <section class="section-gray">
+    <div class="container">
+      <span class="badge badge-dark">Typical Issues</span>
+      <h2 class="mt-3">What goes wrong in every project</h2>
+      <p class="lead mt-2">These problems are not exceptions. They are the norm across the industry.</p>
+      <div class="grid grid-3 mt-8">
+        <div class="card">
+          <div class="card-icon orange">$</div>
+          <h3>Exponential Complexity and Cost</h3>
+          <p>Fast at start, then slower and more expensive as the codebase grows. Eventually you hear: "We need to refactor." "We need to start over." Every new feature costs more than the last.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon orange">?</div>
+          <h3>Lack of Business Focus</h3>
+          <p>Too much time spent on technical decisions, too little on business value. The process is difficult to follow and predict. Developers struggle to explain the business problem they are solving.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon orange">~</div>
+          <h3>Overengineering</h3>
+          <p>Microservices, complex architectures, exotic technologies, high cloud bills. You are not Netflix. Complicated stuff that nobody asked for, built because it seemed like best practice.</p>
+        </div>
+      </div>
+      <div class="grid grid-3 mt-4">
+        <div class="card">
+          <div class="card-icon orange">&clubs;</div>
+          <h3>Death by Jira</h3>
+          <p>Methodology-focused cargo cults. Ceremony over substance. For non-technical stakeholders: death by Jira tickets they cannot parse. Process replaces progress.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon orange">&otimes;</div>
+          <h3>AI Without ROI</h3>
+          <p>Difficult to leverage and scale AI in existing codebases. No measurable return on investment. The architecture was never designed for it.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon orange">0</div>
+          <h3>Long Sprint 0, No Value</h3>
+          <p>Weeks or months of setup, tooling, and infrastructure before a single line of business logic ships. Sprint 0 stretches on with zero business value delivered.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-dark">
+    <div class="container">
+      <span class="badge badge-orange">Root Causes</span>
+      <h2 class="mt-3" style="color:var(--white)">Industry "best practices" that make things worse</h2>
+      <p class="lead mt-2" style="color:rgba(255,255,255,0.7)">The conventional approaches are not just ineffective. They actively cause the problems they claim to solve.</p>
+      <div class="grid grid-2 mt-8">
+        <div class="card card-dark">
+          <h3 style="color:var(--orange)">Shared Information Modeling</h3>
+          <p>Organizes coupling, explodes complexity, and kills agility. Current-state modeling abstracts the past and hampers future evolution.</p>
+        </div>
+        <div class="card card-dark">
+          <h3 style="color:var(--orange)">Layered Architecture and Clean Code</h3>
+          <p>Organizes coupling and diminishes cohesion. Changes ripple across layers instead of staying contained. The opposite of what you need.</p>
+        </div>
+        <div class="card card-dark">
+          <h3 style="color:var(--orange)">Shift Left Obsession</h3>
+          <p>Decide everything upfront. Creates cognitive load, complexity, and overengineering. Locks in decisions before you understand the problem.</p>
+        </div>
+        <div class="card card-dark">
+          <h3 style="color:var(--orange)">Aggregates</h3>
+          <p>Carving in stone with the understanding and requirements of today. Kills agility by coupling your model to current assumptions.</p>
+        </div>
+        <div class="card card-dark">
+          <h3 style="color:var(--orange)">TDD</h3>
+          <p>Generates working tests but does not support proper design. Tests pass, but the architecture degrades. Confidence without quality.</p>
+        </div>
+        <div class="card card-dark">
+          <h3 style="color:var(--orange)">Current-State Modeling</h3>
+          <p>Abstracts away the past and blocks future evolution. You lose the history of how you got here and the flexibility to go somewhere new.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>There is a better way</h2>
+      <p class="lead">We solve these problems with a fundamentally different approach: business-first, AI-native, and built for linear cost.</p>
+      <div class="cta-buttons">
+        <a href="promise.html" class="btn btn-primary">See our promise</a>
+        <a href="techniques.html" class="btn btn-outline">How we work</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo"><img src="images/sliceworkz-logo-white.svg" alt="Sliceworkz" height="28"></div>
+          <p>Reinventing software development.<br>Focus on business.<br>Build with AI.</p>
+          <p class="mt-3" style="font-size:0.8125rem;color:rgba(255,255,255,0.4);">A brand of <a href="https://www.xt-i.com/" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.6);">XTi &ndash; Xtreme Integrations NV</a></p>
+          <div class="mt-3" style="display:flex;gap:1rem;">
+            <a href="https://www.linkedin.com/showcase/sliceworkz/about/" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.6);font-size:0.875rem;font-weight:600;">LinkedIn</a>
+          </div>
+        </div>
+        <div>
+          <h4>Sitemap</h4>
+          <ul>
+            <li><a href="problem.html">The Problem</a></li>
+            <li><a href="promise.html">Our Promise</a></li>
+            <li><a href="results.html">Our Results</a></li>
+            <li><a href="foundations.html">Foundations</a></li>
+            <li><a href="techniques.html">Techniques</a></li>
+            <li><a href="compared.html">Compared</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Services &amp; Solutions</h4>
+          <ul>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="solutions.html">Solutions</a></li>
+            <li><a href="assembly-line.html">Assembly Line</a></li>
+            <li><a href="outcomes.html">Outcomes</a></li>
+            <li><a href="open-source.html">Open Source</a></li>
+            <li><a href="about.html">About Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:+3238719960">+32 3 871 99 60</a></li>
+            <li><a href="mailto:info@sliceworkz.com">info@sliceworkz.com</a></li>
+          </ul>
+          <h4 class="mt-4">Offices (Belgium)</h4>
+          <ul>
+            <li style="color:rgba(255,255,255,0.5);font-size:0.8125rem;">Veldkant 33A, 2550 Kontich</li>
+            <li style="color:rgba(255,255,255,0.5);font-size:0.8125rem;">Guldensporenpark, Merelbeke</li>
+            <li style="color:rgba(255,255,255,0.5);font-size:0.8125rem;">Corda Campus, Hasselt</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; XTi &ndash; Xtreme Integrations NV &middot; VAT BE 474.267.543</span>
+        <span>Sliceworkz &ndash; Reinventing Software Development</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

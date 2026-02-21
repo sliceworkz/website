@@ -1,0 +1,103 @@
+<svg width="620" height="350" viewBox="0 0 620 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="620" height="350" rx="8" fill="white" stroke="#E0E0E0" stroke-width="2"/>
+
+  <!-- ROW 1: GREEN READ MODEL INPUTS -->
+
+  <!-- Architecture (green, left) -->
+  <rect x="65" y="45" width="100" height="42" rx="3" fill="#3DD68C"/>
+  <line x1="77" y1="59" x2="153" y2="59" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+  <line x1="77" y1="67" x2="145" y2="67" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+  <line x1="77" y1="75" x2="149" y2="75" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+  <text x="115" y="100" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#555" font-weight="600">Architecture</text>
+
+  <!-- Event Model (green, center, wider) -->
+  <rect x="250" y="45" width="160" height="42" rx="3" fill="#3DD68C"/>
+  <line x1="264" y1="59" x2="396" y2="59" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+  <line x1="264" y1="67" x2="386" y2="67" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+  <line x1="264" y1="75" x2="390" y2="75" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+  <text x="330" y="100" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#555" font-weight="600">Event Model</text>
+
+  <!-- ROW 2: ACTORS + BLUE COMMANDS -->
+
+  <!-- Human actor (small yellow sticky with person icon) -->
+  <rect x="138" y="133" width="44" height="32" rx="2" fill="#FFD666" opacity="0.9"/>
+  <circle cx="153" cy="144" r="5" fill="white" opacity="0.5"/>
+  <line x1="160" y1="143" x2="174" y2="143" stroke="rgba(255,255,255,0.6)" stroke-width="1.5"/>
+  <text x="160" y="178" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#555" font-weight="600">Human</text>
+
+  <!-- Human Dev command (blue) -->
+  <rect x="195" y="125" width="85" height="48" rx="3" fill="#1890FF"/>
+  <line x1="207" y1="141" x2="268" y2="141" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+  <line x1="207" y1="149" x2="262" y2="149" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+  <line x1="207" y1="157" x2="265" y2="157" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+
+  <!-- AI actor (small yellow sticky with gear icon) -->
+  <rect x="388" y="133" width="44" height="32" rx="2" fill="#FFD666" opacity="0.9"/>
+  <g transform="translate(403, 145)">
+    <circle r="5.5" fill="white" opacity="0.45"/>
+    <circle r="2" fill="white" opacity="0.7"/>
+    <rect x="-2.5" y="-9" width="5" height="3" rx="1" fill="white" opacity="0.45"/>
+    <rect x="-2.5" y="6" width="5" height="3" rx="1" fill="white" opacity="0.45"/>
+    <rect x="-9" y="-2.5" width="3" height="5" rx="1" fill="white" opacity="0.45"/>
+    <rect x="6" y="-2.5" width="3" height="5" rx="1" fill="white" opacity="0.45"/>
+  </g>
+  <line x1="415" y1="143" x2="426" y2="143" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+  <text x="410" y="178" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#555" font-weight="600">AI Agent</text>
+
+  <!-- AI Dev command (blue) -->
+  <rect x="445" y="125" width="85" height="48" rx="3" fill="#1890FF"/>
+  <line x1="457" y1="141" x2="518" y2="141" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+  <line x1="457" y1="149" x2="512" y2="149" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+  <line x1="457" y1="157" x2="515" y2="157" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+
+  <!-- ROW 3: OUTPUTS -->
+
+  <!-- Example Slices (green, left-center) -->
+  <rect x="178" y="232" width="120" height="42" rx="3" fill="#3DD68C"/>
+  <line x1="190" y1="246" x2="286" y2="246" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+  <line x1="190" y1="254" x2="278" y2="254" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+  <line x1="190" y1="262" x2="282" y2="262" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+  <text x="238" y="287" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#555" font-weight="600">Example Slices</text>
+
+  <!-- Working Solution (orange, right) -->
+  <rect x="430" y="232" width="120" height="42" rx="3" fill="#F26522"/>
+  <line x1="442" y1="246" x2="538" y2="246" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+  <line x1="442" y1="254" x2="530" y2="254" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+  <line x1="442" y1="262" x2="534" y2="262" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+  <text x="490" y="287" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#555" font-weight="600">Working Solution</text>
+
+  <!-- ARROWS (dark grey #555) -->
+
+  <!-- Architecture → Human Dev -->
+  <line x1="148" y1="87" x2="205" y2="123" stroke="#555" stroke-width="1.5"/>
+  <polygon points="205,123 198,120 200,115" fill="#555"/>
+
+  <!-- Event Model (left) → Human Dev -->
+  <line x1="295" y1="87" x2="255" y2="123" stroke="#555" stroke-width="1.5"/>
+  <polygon points="255,123 256,116 261,119" fill="#555"/>
+
+  <!-- Event Model (right) → AI Dev -->
+  <line x1="365" y1="87" x2="462" y2="123" stroke="#555" stroke-width="1.5"/>
+  <polygon points="462,123 455,120 457,115" fill="#555"/>
+
+  <!-- Human actor → Human Dev -->
+  <line x1="182" y1="149" x2="193" y2="149" stroke="#555" stroke-width="1.5"/>
+  <polygon points="193,149 188,146 188,152" fill="#555"/>
+
+  <!-- AI actor → AI Dev -->
+  <line x1="432" y1="149" x2="443" y2="149" stroke="#555" stroke-width="1.5"/>
+  <polygon points="443,149 438,146 438,152" fill="#555"/>
+
+  <!-- Human Dev → Example Slices -->
+  <line x1="237" y1="173" x2="237" y2="230" stroke="#555" stroke-width="1.5"/>
+  <polygon points="237,230 234,224 240,224" fill="#555"/>
+
+  <!-- Example Slices → AI Dev (curved) -->
+  <path d="M298,242 C360,240 420,195 450,175" stroke="#555" stroke-width="1.5" fill="none"/>
+  <polygon points="450,175 444,174 445,180" fill="#555"/>
+
+  <!-- AI Dev → Working Solution -->
+  <line x1="487" y1="173" x2="490" y2="230" stroke="#555" stroke-width="1.5"/>
+  <polygon points="490,230 487,224 493,224" fill="#555"/>
+
+</svg>
