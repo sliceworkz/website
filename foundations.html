@@ -17,6 +17,11 @@
   <link rel="icon" type="image/png" href="images/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    @media (max-width: 768px) {
+      .foundations-grid { grid-template-columns: 1fr !important; }
+    }
+  </style>
 </head>
 <body>
 
@@ -71,7 +76,7 @@
 
   <section class="section-light">
     <div class="container">
-      <div class="grid mt-8" style="grid-template-columns: 1fr 1fr; gap: 2rem;">
+      <div class="grid foundations-grid mt-8" style="grid-template-columns: repeat(2, 1fr); gap: 2rem;">
 
         <div class="card">
           <img src="images/brandmark-green.png" alt="" class="card-brandmark">
