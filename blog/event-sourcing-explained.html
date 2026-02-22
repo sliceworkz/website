@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Sourcing: Stop Losing Data You Never Knew You Needed | Sliceworkz Blog</title>
+  <meta name="description" content="Traditional databases overwrite history. Event sourcing keeps every change, giving you a complete audit trail and the power to rebuild any state.">
+  <link rel="icon" type="image/png" href="../images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <a href="../index.html" class="logo"><img src="../images/sliceworkz-logo-dark.svg" alt="Sliceworkz" height="28"></a>
+      <div class="nav-links" id="navLinks">
+        <div class="nav-dropdown">
+          <a href="#">Why</a>
+          <div class="dropdown-menu">
+            <a href="../problem.html">The Problem</a>
+            <a href="../promise.html">Our Promise</a>
+            <a href="../results.html">Our Results</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="#">AI-Native Software Factory</a>
+          <div class="dropdown-menu">
+            <a href="../foundations.html">Foundations</a>
+            <a href="../techniques.html">Techniques</a>
+            <a href="../assembly-line.html">Assembly Line</a>
+            <a href="../compared.html">Compared</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="#">Services &amp; Solutions</a>
+          <div class="dropdown-menu">
+            <a href="../services.html">Services</a>
+            <a href="../solutions.html">Solutions</a>
+            <a href="../outcomes.html">Outcomes</a>
+          </div>
+        </div>
+        <a href="../open-source.html">Open Source</a>
+        <a href="../blog.html" class="active">Blog</a>
+        <a href="../about.html">About</a>
+        <a href="../about.html#contact" class="btn btn-primary" style="margin-left:0.5rem;">Contact</a>
+      </div>
+      <button class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <section class="page-hero gray-bg">
+    <div class="container">
+      <a href="../blog.html" class="blog-back-link">&larr; All articles</a>
+      <div class="blog-post-hero-tags">
+        <span class="tag tag-orange">Event Sourcing</span>
+        <span class="tag tag-green">Architecture</span>
+      </div>
+      <h1>Event Sourcing: Stop Losing Data You Never Knew You Needed</h1>
+      <p class="lead">Traditional databases overwrite history. Event sourcing keeps every change, giving you a complete audit trail and the power to rebuild any state.</p>
+    </div>
+    <div class="page-hero-geo"></div>
+  </section>
+
+  <section class="section-light">
+    <div class="container">
+      <div class="blog-post-content">
+        <img src="../images/blog/blog-event-sourcing.svg" alt="Event Sourcing illustration" class="blog-post-img">
+
+        <p>Every traditional database application does the same thing: it stores the current state of the world. When something changes, it overwrites the old value with the new one. A customer updates their address, and the old address vanishes. An order status moves from "processing" to "shipped," and the fact that it was ever "processing" is gone. An account balance changes from 1,000 to 750, and the reason why is lost to the void.</p>
+
+        <p>We have been building software this way for decades, and we have accepted the data loss as normal. It is not normal. It is a design choice, and it is a bad one. We are throwing away information that has enormous value, and most teams do not even realize it until they desperately need data that no longer exists.</p>
+
+        <p>Event sourcing takes a fundamentally different approach. Instead of storing the current state, it stores every change that has ever occurred. Instead of overwriting, it appends. Instead of a snapshot, it keeps the complete history. And this changes everything.</p>
+
+        <h2>The Problem with CRUD</h2>
+
+        <p>The traditional Create-Read-Update-Delete model seems intuitive. You have data, you modify it, you save it. But consider what you lose with every update.</p>
+
+        <p>A customer's order is modified three times before shipment. With CRUD, you have only the final version. Why was it changed? Who changed it? What was it before? Unless you have built a separate audit logging system (and most teams have not, or the logging is incomplete), this information is gone.</p>
+
+        <p>A pricing error causes a product to be sold at the wrong price for two hours. With CRUD, you can see the current price, but reconstructing exactly which orders were affected requires forensic investigation of whatever logs happen to exist.</p>
+
+        <p>A compliance audit asks you to demonstrate the complete history of changes to a customer's personal data, including who accessed it and when. With CRUD, you cannot. The data has been overwritten, and the history is not recorded in the application's primary data store.</p>
+
+        <p>These are not edge cases. These are the kinds of questions that businesses need answered every day. And CRUD makes answering them somewhere between difficult and impossible.</p>
+
+        <h2>How Event Sourcing Works</h2>
+
+        <p>Event sourcing replaces the mutable state with an immutable sequence of events. Instead of storing "Account balance: 750," you store the events that led to that balance:</p>
+
+        <ul>
+          <li>AccountOpened: initial balance 0</li>
+          <li>FundsDeposited: amount 1,000</li>
+          <li>PurchaseMade: amount 200, merchant "Office Supplies Co"</li>
+          <li>FundsDeposited: amount 500</li>
+          <li>SubscriptionCharged: amount 50, service "Cloud Hosting"</li>
+          <li>RefundReceived: amount 200, reason "Returned item"</li>
+          <li>TransferSent: amount 700, recipient "Supplier Account"</li>
+        </ul>
+
+        <p>The current balance of 750 is not stored anywhere. It is calculated by replaying the events from the beginning. This might sound inefficient, and at scale it would be, which is why event sourcing uses a complementary concept: projections.</p>
+
+        <h2>The Event Store</h2>
+
+        <p>The event store is the heart of an event-sourced system. It is an append-only log of events, organized into streams. Events are never modified or deleted. They are facts: things that happened. You cannot un-happen something.</p>
+
+        <p>This append-only nature gives the event store remarkable properties. It is inherently thread-safe for writes (appending to a log has no conflicts). It provides a natural audit trail without any additional infrastructure. It is straightforward to replicate and back up. And because events are immutable, caching is trivial: once written, an event never changes.</p>
+
+        <p>Modern event stores like the <a href="https://github.com/sliceworkz/eventstore" target="_blank" rel="noopener" style="color:var(--orange);font-weight:600;">open source Sliceworkz Event Store</a> are purpose-built for this pattern, offering features like subscriptions (getting notified when new events are written), projections (transforming events into read models), and global ordering (knowing the exact sequence of all events across all streams).</p>
+
+        <h2>Projections and Read Models</h2>
+
+        <p>If events are the source of truth, projections are how you make that truth useful. A projection is a process that reads events and builds a data structure optimized for a specific use case.</p>
+
+        <p>Need a dashboard showing total revenue by month? Build a projection that processes "PurchaseCompleted" events and maintains monthly totals. Need a customer detail page? Build a projection that tracks "CustomerRegistered," "AddressUpdated," and "OrderPlaced" events to maintain a current customer view. Need a fraud detection system? Build a projection that watches for suspicious patterns across payment events.</p>
+
+        <p>The beauty of projections is that you can create new ones at any time, and they automatically process all historical events. Imagine your business decides it needs a report that nobody thought of when the system was built. With CRUD, you are out of luck: the data was overwritten. With event sourcing, you write a new projection, run it against your entire event history, and the report is populated with data going back to day one.</p>
+
+        <blockquote>
+          <p>"With event sourcing, you can answer questions today that you did not even think to ask when the system was built. The data is there, waiting for the right question."</p>
+        </blockquote>
+
+        <h2>Temporal Queries: Time Travel for Your Data</h2>
+
+        <p>Because you have the complete history of every change, you can reconstruct the state of your system at any point in time. What did the customer's account look like last Tuesday at 3pm? Replay events up to that timestamp, and you have your answer.</p>
+
+        <p>This capability is invaluable for debugging. When a user reports that something "was wrong yesterday but seems fine now," you do not need to guess what happened. You can reconstruct the exact state they saw, identify the events that led to it, and understand precisely what changed.</p>
+
+        <p>It is equally valuable for compliance. Regulations like GDPR require you to demonstrate what data you held about a person at specific points in time. Event sourcing makes this straightforward. Financial regulations require complete audit trails. Event sourcing provides them by default.</p>
+
+        <h2>Benefits Beyond the Obvious</h2>
+
+        <p>The immediate benefits of event sourcing, audit trails, temporal queries, and the ability to build new read models, are compelling enough. But there are subtler benefits that emerge over time.</p>
+
+        <ul>
+          <li><strong>Debugging becomes archaeological.</strong> When something goes wrong, you have the complete chain of events that led to the problem. You do not need to reproduce the issue. You do not need to guess at state transitions. The evidence is right there in the event stream.</li>
+          <li><strong>Integration becomes natural.</strong> From your internal domain events, it is easy to produce an outside-world purposed event stream that other systems can subscribe to. This is essentially an event-driven architecture (EDA): no polling, no batch jobs, no integration databases. External consumers react to changes in real time, decoupled from your internal domain model.</li>
+          <li><strong>Testing becomes specification-based.</strong> You can write tests that say "given these events occurred, when this command is executed, then these new events should be produced." The tests read like business specifications, and they verify behaviour without depending on infrastructure.</li>
+          <li><strong>Business insights multiply.</strong> Data analysts can work directly with event streams to discover patterns that would be invisible in a CRUD database. Customer behaviour, system usage patterns, conversion funnels: all of this is embedded in the events, waiting to be discovered.</li>
+        </ul>
+
+        <h2>When to Use Event Sourcing</h2>
+
+        <p>Event sourcing is not appropriate for every part of every system. It adds complexity, and that complexity must be justified by the business value it provides.</p>
+
+        <p>Event sourcing excels in domains where:</p>
+
+        <ul>
+          <li>The complete history of changes has business value (financial systems, healthcare, legal, logistics)</li>
+          <li>Audit and compliance requirements are strict</li>
+          <li>Business processes are complex and involve multiple steps over time</li>
+          <li>The ability to derive new insights from historical data is important</li>
+          <li>Multiple systems need to react to changes in real time</li>
+        </ul>
+
+        <p>It is less compelling for simple CRUD applications, content management systems, or systems where the current state is the only state that matters and history has no business value.</p>
+
+        <p>In practice, most non-trivial systems benefit from event sourcing in their core domain, even if supporting domains use traditional state-based persistence. This selective application, informed by domain-driven design principles, gives you the benefits of event sourcing where they matter most without imposing unnecessary complexity where they do not.</p>
+
+        <h2>Common Misconceptions</h2>
+
+        <p>Several misconceptions prevent teams from adopting event sourcing where it would provide significant value.</p>
+
+        <p><strong>"It is too slow."</strong> For writes, event sourcing is actually faster than traditional databases because appending to a log is cheaper than updating indexed tables. For reads, projections provide pre-computed views that are as fast as any database query. The replay process, used for building new projections, runs offline and does not affect system performance.</p>
+
+        <p><strong>"It uses too much storage."</strong> Events are typically small, and storage is cheap. Most event-sourced systems store years of history in gigabytes, not terabytes. And unlike traditional databases, you never need to vacuum or compact.</p>
+
+        <p><strong>"It is too complex."</strong> The core pattern is remarkably simple: append events, read events, build views. The complexity comes from the surrounding ecosystem, but that complexity exists in traditional systems too. It is just hidden behind ad-hoc audit tables, change data capture systems, and integration middleware.</p>
+
+        <p>Event sourcing does not add complexity. It makes existing complexity visible and manageable. The data loss in CRUD is not simplicity. It is hidden cost. Event sourcing makes you pay that cost upfront, in a controlled way, rather than discovering it when your business needs data that has already been destroyed.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-gray blog-related">
+    <div class="container">
+      <h2>Keep reading</h2>
+      <div class="grid grid-3">
+        <a href="domain-driven-design-business.html" class="blog-card">
+          <img src="../images/blog/blog-ddd.svg" alt="Domain-Driven Design" class="blog-card-img">
+          <div class="blog-card-body">
+            <div class="blog-card-tags">
+              <span class="tag tag-blue">DDD</span>
+              <span class="tag tag-green">Architecture</span>
+            </div>
+            <h3>Domain-Driven Design is a Business Strategy, Not a Technical Pattern</h3>
+            <p>DDD isn't about entities and repositories. It's about aligning your software with how your business actually works.</p>
+          </div>
+        </a>
+        <a href="event-modeling-blueprint.html" class="blog-card">
+          <img src="../images/technique-event-modeling.svg" alt="Event Modeling" class="blog-card-img">
+          <div class="blog-card-body">
+            <div class="blog-card-tags">
+              <span class="tag tag-orange">Event Modeling</span>
+              <span class="tag tag-blue">DDD</span>
+            </div>
+            <h3>Event Modeling: the Blueprint Your Software Project Needs</h3>
+            <p>Most software projects fail not because of bad code, but because nobody truly understood what needed to be built.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Want to go deeper?</h2>
+      <p class="lead">Talk to us about how these ideas can transform your next project.</p>
+      <div class="cta-buttons">
+        <a href="../about.html#contact" class="btn btn-primary">Get in touch</a>
+        <a href="../services.html" class="btn btn-outline">Our services</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo"><img src="../images/sliceworkz-logo-white.svg" alt="Sliceworkz" height="28"></div>
+          <p>Reinventing software development.<br>Focus on business.<br>Build with AI.</p>
+          <p class="mt-3" style="font-size:0.8125rem;color:rgba(255,255,255,0.4);">A brand of <a href="https://www.xt-i.com/" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.6);">XTi &ndash; Xtreme Integrations NV</a></p>
+          <div class="mt-3" style="display:flex;gap:1rem;">
+            <a href="https://www.linkedin.com/showcase/sliceworkz/about/" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.6);font-size:0.875rem;font-weight:600;">LinkedIn</a>
+          </div>
+        </div>
+        <div>
+          <h4>Sitemap</h4>
+          <ul>
+            <li><a href="../problem.html">The Problem</a></li>
+            <li><a href="../promise.html">Our Promise</a></li>
+            <li><a href="../results.html">Our Results</a></li>
+            <li><a href="../foundations.html">Foundations</a></li>
+            <li><a href="../techniques.html">Techniques</a></li>
+            <li><a href="../compared.html">Compared</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Services &amp; Solutions</h4>
+          <ul>
+            <li><a href="../services.html">Services</a></li>
+            <li><a href="../solutions.html">Solutions</a></li>
+            <li><a href="../assembly-line.html">Assembly Line</a></li>
+            <li><a href="../outcomes.html">Outcomes</a></li>
+            <li><a href="../open-source.html">Open Source</a></li>
+            <li><a href="../blog.html">Blog</a></li>
+            <li><a href="../about.html">About Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:+3238719960">+32 3 871 99 60</a></li>
+            <li><a href="mailto:info@sliceworkz.com">info@sliceworkz.com</a></li>
+          </ul>
+          <h4 class="mt-4">Offices (Belgium)</h4>
+          <ul>
+            <li style="color:rgba(255,255,255,0.5);font-size:0.8125rem;">Veldkant 33A, 2550 Kontich</li>
+            <li style="color:rgba(255,255,255,0.5);font-size:0.8125rem;">Guldensporenpark, Merelbeke</li>
+            <li style="color:rgba(255,255,255,0.5);font-size:0.8125rem;">Corda Campus, Hasselt</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; XTi &ndash; Xtreme Integrations NV &middot; VAT BE 474.267.543</span>
+        <span>Sliceworkz &ndash; Reinventing Software Development</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

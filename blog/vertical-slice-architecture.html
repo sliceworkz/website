@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vertical Slice Architecture: the End of Layered Spaghetti | Sliceworkz Blog</title>
+  <meta name="description" content="Stop organising code by technical layer. Organise by feature, and watch complexity become manageable again.">
+  <link rel="icon" type="image/png" href="../images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <a href="../index.html" class="logo"><img src="../images/sliceworkz-logo-dark.svg" alt="Sliceworkz" height="28"></a>
+      <div class="nav-links" id="navLinks">
+        <div class="nav-dropdown">
+          <a href="#">Why</a>
+          <div class="dropdown-menu">
+            <a href="../problem.html">The Problem</a>
+            <a href="../promise.html">Our Promise</a>
+            <a href="../results.html">Our Results</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="#">AI-Native Software Factory</a>
+          <div class="dropdown-menu">
+            <a href="../foundations.html">Foundations</a>
+            <a href="../techniques.html">Techniques</a>
+            <a href="../assembly-line.html">Assembly Line</a>
+            <a href="../compared.html">Compared</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="#">Services &amp; Solutions</a>
+          <div class="dropdown-menu">
+            <a href="../services.html">Services</a>
+            <a href="../solutions.html">Solutions</a>
+            <a href="../outcomes.html">Outcomes</a>
+          </div>
+        </div>
+        <a href="../open-source.html">Open Source</a>
+        <a href="../blog.html" class="active">Blog</a>
+        <a href="../about.html">About</a>
+        <a href="../about.html#contact" class="btn btn-primary" style="margin-left:0.5rem;">Contact</a>
+      </div>
+      <button class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <section class="page-hero gray-bg">
+    <div class="container">
+      <a href="../blog.html" class="blog-back-link">&larr; All articles</a>
+      <div class="blog-post-hero-tags">
+        <span class="tag tag-green">Vertical Slice</span>
+        <span class="tag tag-orange">Event Modeling</span>
+      </div>
+      <h1>Vertical Slice Architecture: the End of Layered Spaghetti</h1>
+      <p class="lead">Stop organising code by technical layer. Organise by feature, and watch complexity become manageable again.</p>
+    </div>
+    <div class="page-hero-geo"></div>
+  </section>
+
+  <section class="section-light">
+    <div class="container">
+      <div class="blog-post-content">
+        <img src="../images/blog/blog-vertical-slice.svg" alt="Vertical Slice Architecture illustration" class="blog-post-img">
+
+        <p>Open any enterprise codebase and you will find a familiar structure: Controllers, Services, Repositories, Models. Four folders. Four layers. A hierarchy so ingrained that most developers never question it. It is how they learned to build software. It is how their colleagues build software. It is how the framework tutorials teach software.</p>
+
+        <p>It is also the primary source of accidental complexity in most applications.</p>
+
+        <p>Layered architecture was designed to separate concerns. In practice, it separates code that belongs together and couples code that should be independent. The result is a codebase where adding a simple feature requires changing files in four different folders, where a modification to one feature risks breaking three others, and where the cost of change grows exponentially with the size of the system.</p>
+
+        <p>Vertical slice architecture offers a fundamentally different organizing principle. Instead of grouping code by technical layer, you group it by feature. Everything needed to implement a single feature lives together: the handler, the data access, the validation, the response mapping. And nothing else.</p>
+
+        <h2>The Layered Architecture Trap</h2>
+
+        <p>To understand why vertical slices are necessary, you need to understand exactly how layered architecture fails. Not in theory, where it looks clean and orderly, but in practice, where it creates the very problems it was supposed to prevent.</p>
+
+        <p>In a layered architecture, a typical feature involves a controller that receives a request, a service that contains business logic, a repository that handles data access, and a model that represents the data. These four pieces live in four different folders, connected by interfaces and dependency injection.</p>
+
+        <p>When the application has five features, this works well enough. You can hold the entire structure in your head. Changes are manageable. But applications do not stay small.</p>
+
+        <p>At fifty features, the service layer contains fifty service classes, each potentially depending on several others. The repository layer contains fifty repositories, many of which share database contexts. A change to the OrderService might affect the InventoryService, which depends on the same repository as the ShippingService. The layers have created coupling rather than preventing it.</p>
+
+        <p>At five hundred features, the situation becomes untenable. The service layer is a web of interdependencies so complex that no single developer understands it. Changing one service requires understanding its ripple effects through dozens of others. Testing a single feature requires mocking an elaborate tree of dependencies. The layered architecture has become layered spaghetti.</p>
+
+        <blockquote>
+          <p>"Layered architecture optimises for a question nobody asks: 'Show me all the controllers.' The question people actually ask is: 'Show me how this feature works.' Vertical slices answer the right question."</p>
+        </blockquote>
+
+        <h2>What Vertical Slices Are</h2>
+
+        <p>A vertical slice is a self-contained unit of functionality that cuts through all technical layers. Instead of separating the controller, service, repository, and model into different folders, a vertical slice puts everything needed for a single feature in one place.</p>
+
+        <p>Consider an "Add Item to Cart" feature. In a layered architecture, this would involve:</p>
+
+        <ul>
+          <li>com.mycompany.application.controllers.CartController.java (method addItem)</li>
+          <li>com.mycompany.application.services.CartService.java (method addItem)</li>
+          <li>com.mycompany.application.repositories.CartRepository.java (method updateCart)</li>
+          <li>com.mycompany.application.models.Cart.java, CartItem.java</li>
+        </ul>
+
+        <p>In a vertical slice architecture, this entire feature lives in one place:</p>
+
+        <ul>
+          <li>com.mycompany.application.features.cart — the package contains everything: REST controller, command handler, validation, data access, and response mapping</li>
+        </ul>
+
+        <p>Everything you need to understand, modify, test, or debug this feature is in one file or one folder. You do not need to navigate four different locations. You do not need to trace through layers of abstraction. You do not need to understand how this feature relates to others, because by design, it does not.</p>
+
+        <h2>Independence: the Core Property</h2>
+
+        <p>The defining characteristic of a vertical slice is independence. Each slice is isolated from every other slice. They share no services, no repositories, no abstractions. If two slices happen to need the same data, each has its own way of accessing it.</p>
+
+        <p>This sounds like duplication, and in a narrow sense it is. But it is deliberate, beneficial duplication. The alternative, sharing code between features through common services, creates coupling. And coupling means that a change to one feature can break another.</p>
+
+        <p>Consider what happens when the "Add Item to Cart" logic needs to change. In a layered architecture, you modify the CartService, which is also used by "Remove Item," "View Cart," and "Checkout." Your change might break any of them. You need to test all of them. You need to understand all of them.</p>
+
+        <p>In a vertical slice architecture, you modify the AddItemToCart handler. It is used by one feature: Add Item to Cart. Nothing else can break. Nothing else needs testing. The blast radius of your change is exactly one feature wide.</p>
+
+        <h2>Constant Cost of Change</h2>
+
+        <p>This independence produces a remarkable property: the cost of changing a feature remains constant regardless of the system's size.</p>
+
+        <p>In a layered architecture, the cost of change grows as the system grows. More features means more shared services, more dependencies, more potential side effects, more tests to run, more risk per change. This is why enterprise applications slow to a crawl over time. The architecture itself makes every change more expensive than the last.</p>
+
+        <p>In a vertical slice architecture, the cost of changing the 500th feature is the same as changing the 5th. The slice is self-contained. It has no dependencies on other slices. Its test suite is independent. The size of the overall system is irrelevant to the cost of changing any individual slice.</p>
+
+        <p>This is not a minor benefit. It is the difference between a codebase that becomes progressively harder to work with and one that remains manageable indefinitely. It is the difference between projects that decelerate and projects that maintain velocity.</p>
+
+        <h2>Parallel Development</h2>
+
+        <p>When features are independent, they can be developed in parallel without conflicts. Two developers (or two AI agents) can work on two different slices simultaneously with zero risk of interference. No merge conflicts in shared service files. No debates about the "right" abstraction for a shared repository. No waiting for another team to finish their changes to a common module.</p>
+
+        <p>This parallelism extends beyond individual developers. Teams can be organized around business capabilities, each owning a set of vertical slices. They can develop, test, and deploy independently. The organizational structure mirrors the architectural structure, and both mirror the business domain.</p>
+
+        <p>This alignment is not coincidental. It is a direct consequence of Conway's Law: organizations produce systems that mirror their communication structures. By aligning architecture with business capabilities through vertical slices, you create an architecture that naturally supports how your teams want to work.</p>
+
+        <h2>How It Works with Event Modeling</h2>
+
+        <p>Vertical slice architecture and event modeling are natural partners. An event model is, quite literally, a specification composed of vertical slices.</p>
+
+        <p>Each slice in an event model, whether it is a command, a read model, or an automation, maps directly to a vertical slice in the codebase. The event model tells you exactly what each slice does: its inputs, its outputs, its business rules. The vertical slice architecture tells you exactly how to organize the implementation: everything for that feature in one place, independent of everything else.</p>
+
+        <p>This correspondence has profound implications for development workflow. The event model serves as the work breakdown structure. Each slice is an independently implementable unit of work. Progress can be measured in slices completed. Estimation can be based on slice complexity. The gap between specification and implementation vanishes because they use the same decomposition.</p>
+
+        <p>For AI-native development, this pairing is particularly powerful. Each event model slice provides the AI with a precise, bounded specification. The vertical slice architecture ensures that the AI's implementation of one slice cannot interfere with another. Multiple slices can be generated in parallel with confidence that they will integrate cleanly.</p>
+
+        <h2>Comparison to Traditional Architectures</h2>
+
+        <p>It is worth contrasting vertical slices with the architectures they replace.</p>
+
+        <p><strong>Layered architecture</strong> (Controllers/Services/Repositories) groups code by technical role. It creates coupling between features through shared services. Changes to one feature risk breaking others. The cost of change increases over time.</p>
+
+        <p><strong>Clean architecture / Onion architecture</strong> addresses some of layered architecture's problems by enforcing dependency direction (outer layers depend on inner layers, never the reverse). But it still organizes code by technical layer within each ring. Features are still scattered across multiple folders. The coupling problem is reduced but not eliminated.</p>
+
+        <p><strong>Vertical slice architecture</strong> groups code by feature. Each feature is fully independent. Changes to one feature cannot affect others. The cost of change is constant. The tradeoff is code duplication between slices, which is deliberately accepted because the coupling it prevents is far more expensive than the duplication it introduces.</p>
+
+        <p>The key insight is that not all code organization principles are equally valuable. "Do not repeat yourself" (DRY) is a useful guideline, but taken to an extreme it creates coupling that is worse than the duplication it eliminates. Vertical slices choose independence over reuse, and this is the right choice for most applications.</p>
+
+        <h2>Making the Transition</h2>
+
+        <p>Moving from layered architecture to vertical slices does not require a big-bang rewrite. You can transition incrementally. New features are built as vertical slices. Existing features are migrated one at a time, starting with the ones that change most frequently.</p>
+
+        <p>The mechanical transformation is straightforward: take the controller action, the service method, and the repository method for a single feature, and move them into a single handler class or folder. Remove the shared abstractions. Inline the dependencies. Run the tests. You now have one vertical slice, and the rest of the system is unaffected.</p>
+
+        <p>Over time, the layered sections of the codebase shrink and the vertical slices grow. The shared services become thinner. The coupling decreases. The velocity increases. And at some point, you look at the codebase and realize that every feature is independent, every change is localized, and the architecture is working for you instead of against you.</p>
+
+        <p>That is the promise of vertical slice architecture. Not a theoretical elegance but a practical transformation in how you build and maintain software. The end of layered spaghetti. The beginning of manageable complexity.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-gray blog-related">
+    <div class="container">
+      <h2>Keep reading</h2>
+      <div class="grid grid-3">
+        <a href="event-modeling-blueprint.html" class="blog-card">
+          <img src="../images/technique-event-modeling.svg" alt="Event Modeling" class="blog-card-img">
+          <div class="blog-card-body">
+            <div class="blog-card-tags">
+              <span class="tag tag-orange">Event Modeling</span>
+              <span class="tag tag-blue">DDD</span>
+            </div>
+            <h3>Event Modeling: the Blueprint Your Software Project Needs</h3>
+            <p>Most software projects fail not because of bad code, but because nobody truly understood what needed to be built.</p>
+          </div>
+        </a>
+        <a href="ai-native-development.html" class="blog-card">
+          <img src="../images/blog/blog-ai-native.svg" alt="AI-Native Development" class="blog-card-img">
+          <div class="blog-card-body">
+            <div class="blog-card-tags">
+              <span class="tag tag-orange">AI-Native</span>
+              <span class="tag tag-blue">Vertical Slice</span>
+            </div>
+            <h3>What AI-Native Development Actually Means</h3>
+            <p>It's not about using Copilot. AI-native development means structuring your entire process so AI can contribute at every stage.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Want to go deeper?</h2>
+      <p class="lead">Talk to us about how these ideas can transform your next project.</p>
+      <div class="cta-buttons">
+        <a href="../about.html#contact" class="btn btn-primary">Get in touch</a>
+        <a href="../services.html" class="btn btn-outline">Our services</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo"><img src="../images/sliceworkz-logo-white.svg" alt="Sliceworkz" height="28"></div>
+          <p>Reinventing software development.<br>Focus on business.<br>Build with AI.</p>
+          <p class="mt-3" style="font-size:0.8125rem;color:rgba(255,255,255,0.4);">A brand of <a href="https://www.xt-i.com/" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.6);">XTi &ndash; Xtreme Integrations NV</a></p>
+          <div class="mt-3" style="display:flex;gap:1rem;">
+            <a href="https://www.linkedin.com/showcase/sliceworkz/about/" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.6);font-size:0.875rem;font-weight:600;">LinkedIn</a>
+          </div>
+        </div>
+        <div>
+          <h4>Sitemap</h4>
+          <ul>
+            <li><a href="../problem.html">The Problem</a></li>
+            <li><a href="../promise.html">Our Promise</a></li>
+            <li><a href="../results.html">Our Results</a></li>
+            <li><a href="../foundations.html">Foundations</a></li>
+            <li><a href="../techniques.html">Techniques</a></li>
+            <li><a href="../compared.html">Compared</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Services &amp; Solutions</h4>
+          <ul>
+            <li><a href="../services.html">Services</a></li>
+            <li><a href="../solutions.html">Solutions</a></li>
+            <li><a href="../assembly-line.html">Assembly Line</a></li>
+            <li><a href="../outcomes.html">Outcomes</a></li>
+            <li><a href="../open-source.html">Open Source</a></li>
+            <li><a href="../blog.html">Blog</a></li>
+            <li><a href="../about.html">About Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:+3238719960">+32 3 871 99 60</a></li>
+            <li><a href="mailto:info@sliceworkz.com">info@sliceworkz.com</a></li>
+          </ul>
+          <h4 class="mt-4">Offices (Belgium)</h4>
+          <ul>
+            <li style="color:rgba(255,255,255,0.5);font-size:0.8125rem;">Veldkant 33A, 2550 Kontich</li>
+            <li style="color:rgba(255,255,255,0.5);font-size:0.8125rem;">Guldensporenpark, Merelbeke</li>
+            <li style="color:rgba(255,255,255,0.5);font-size:0.8125rem;">Corda Campus, Hasselt</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; XTi &ndash; Xtreme Integrations NV &middot; VAT BE 474.267.543</span>
+        <span>Sliceworkz &ndash; Reinventing Software Development</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Modeling: the Blueprint Your Software Project Needs | Sliceworkz Blog</title>
+  <meta name="description" content="Most software projects fail not because of bad code, but because nobody truly understood what needed to be built. Event modeling changes that.">
+  <link rel="icon" type="image/png" href="../images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <a href="../index.html" class="logo"><img src="../images/sliceworkz-logo-dark.svg" alt="Sliceworkz" height="28"></a>
+      <div class="nav-links" id="navLinks">
+        <div class="nav-dropdown">
+          <a href="#">Why</a>
+          <div class="dropdown-menu">
+            <a href="../problem.html">The Problem</a>
+            <a href="../promise.html">Our Promise</a>
+            <a href="../results.html">Our Results</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="#">AI-Native Software Factory</a>
+          <div class="dropdown-menu">
+            <a href="../foundations.html">Foundations</a>
+            <a href="../techniques.html">Techniques</a>
+            <a href="../assembly-line.html">Assembly Line</a>
+            <a href="../compared.html">Compared</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="#">Services &amp; Solutions</a>
+          <div class="dropdown-menu">
+            <a href="../services.html">Services</a>
+            <a href="../solutions.html">Solutions</a>
+            <a href="../outcomes.html">Outcomes</a>
+          </div>
+        </div>
+        <a href="../open-source.html">Open Source</a>
+        <a href="../blog.html" class="active">Blog</a>
+        <a href="../about.html">About</a>
+        <a href="../about.html#contact" class="btn btn-primary" style="margin-left:0.5rem;">Contact</a>
+      </div>
+      <button class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <section class="page-hero gray-bg">
+    <div class="container">
+      <a href="../blog.html" class="blog-back-link">&larr; All articles</a>
+      <div class="blog-post-hero-tags">
+        <span class="tag tag-orange">Event Modeling</span>
+        <span class="tag tag-blue">DDD</span>
+      </div>
+      <h1>Event Modeling: the Blueprint Your Software Project Needs</h1>
+      <p class="lead">Most software projects fail not because of bad code, but because nobody truly understood what needed to be built.</p>
+    </div>
+    <div class="page-hero-geo"></div>
+  </section>
+
+  <section class="section-light">
+    <div class="container">
+      <div class="blog-post-content">
+        <img src="../images/technique-event-modeling.svg" alt="Event Modeling blueprint illustration" class="blog-post-img">
+
+        <p>There is a persistent myth in software development: that projects fail because developers write bad code. Some do, of course. But the vast majority of failed projects are not undone by syntax errors or poor algorithm choices. They are undone by something far more fundamental: nobody truly understood what needed to be built.</p>
+
+        <p>Requirements documents run to hundreds of pages that nobody reads. User stories are vague enough to be interpreted three different ways by three different developers. Acceptance criteria are written after the fact, as an afterthought. The result is software that technically works but does not actually solve the business problem it was created for.</p>
+
+        <p>Event Modeling offers a radically different approach. It provides a visual, comprehensive blueprint for your entire system that both business stakeholders and developers can understand, discuss, and agree upon before a single line of code is written.</p>
+
+        <h2>What is Event Modeling?</h2>
+
+        <p>Event Modeling, created by Adam Dymitruk, is a method for designing information systems by focusing on what happens in a system over time. Instead of starting with database tables or class diagrams, you start with events: the things that happen in your business domain.</p>
+
+        <p>Picture a long horizontal timeline. On that timeline, you place sticky notes representing every significant thing that happens in your system. A customer places an order. A payment is processed. An invoice is generated. A shipment is dispatched. These are events, and they tell the story of your system in a language that everyone in the room understands.</p>
+
+        <p>From this foundation, Event Modeling builds a complete specification of your system using just four patterns, four types of "slices" that together describe everything your software needs to do.</p>
+
+        <h2>The Four Slice Types</h2>
+
+        <p>The elegance of Event Modeling lies in its simplicity. Every feature in any information system can be described using just four patterns:</p>
+
+        <ul>
+          <li><strong>State Change:</strong> A user performs an action that changes the state of the system. A customer submits an order, an administrator approves a refund, a manager updates a price. The slice captures the user's intent, the data they provide, the validation rules that must pass, and the resulting events that record what happened. This is where business decisions are enforced.</li>
+          <li><strong>State Read:</strong> A screen, report, or API response that displays information to a user. It reads from stored events and projects them into a view. Think of a dashboard showing order statistics, or a customer detail page. The state read defines exactly what information is shown, which events it is built from, and how it is structured.</li>
+          <li><strong>Automation:</strong> A slice that reacts to a particular state and produces further commands or side effects without human intervention. That state can be as simple as a single event having occurred, but it can also be more sophisticated — such as a certain amount of time having elapsed without a required activity taking place. For example, if an order has not been paid within 48 hours, an automation cancels it. Automations can also call external APIs, such as triggering a payment capture or sending a confirmation email.</li>
+          <li><strong>Translation:</strong> An integration point where the outside world pushes data into your system. A translation slice handles incoming information — an external system calling a webhook, a message arriving on your event bus, or a partner sending a file drop. It maps between the external system's language and your domain language, translating foreign data into commands or events your system understands.</li>
+        </ul>
+
+        <p>That is it. Four patterns. Every feature you will ever build fits into one of these categories. This constraint is not a limitation; it is a liberation. It means your entire system can be described in a single, consistent visual language.</p>
+
+        <h2>Shared Understanding: the Real Deliverable</h2>
+
+        <p>The most valuable output of an Event Modeling session is not the diagram itself. It is the shared understanding that emerges from creating it.</p>
+
+        <p>When you gather business stakeholders, domain experts, and developers around a whiteboard (or a digital canvas) and walk through the system event by event, something powerful happens. Assumptions surface. Contradictions are exposed. Edge cases that would have become bugs six months from now are identified and resolved in minutes.</p>
+
+        <blockquote>
+          <p>"The blueprint is a conversation made visible. Every sticky note represents a decision that was discussed, debated, and agreed upon by everyone who matters."</p>
+        </blockquote>
+
+        <p>A product owner might say, "When a customer cancels an order, we refund them." A developer might ask, "What if the order has already shipped?" A domain expert might clarify, "In that case, we initiate a return process instead." This conversation, captured in the event model, prevents an entire category of bugs and misunderstandings.</p>
+
+        <h2>Specifications in Business Language</h2>
+
+        <p>One of Event Modeling's most important principles is that every slice is specified in business language. Not in technical jargon. Not in pseudo-code. In the language that the business uses every day.</p>
+
+        <p>A command is not "POST /api/orders with a JSON payload." It is "Customer places an order by selecting items and providing a delivery address." An event is not "OrderCreatedEvent with fields orderId, customerId, lineItems." It is "Order was placed for customer, containing specific items, to be delivered to a given address."</p>
+
+        <p>This matters enormously. When specifications are written in business language, business people can verify them. They can spot errors. They can say, "No, that is not how we handle international orders," before anyone has written a line of code. The cost of fixing a misunderstanding at the specification stage is nearly zero. The cost of fixing it after deployment can be catastrophic.</p>
+
+        <h2>Why Event Modeling Outperforms User Stories</h2>
+
+        <p>User stories have become ubiquitous in agile development, and for good reason: they shifted focus from technical specifications to user needs. But they have a critical weakness: they are isolated fragments that do not show how the system works as a whole.</p>
+
+        <p>"As a customer, I want to place an order so that I can receive my products." This tells you almost nothing about the mechanics of the system. What data does the customer provide? What happens after the order is placed? How does this relate to inventory, payments, shipping? User stories leave these connections implicit, expecting developers to fill in the gaps. And developers, lacking business context, often fill them in wrong.</p>
+
+        <p>Event Modeling, by contrast, shows the entire flow. You can trace a customer's journey from browsing to ordering to payment to delivery, seeing every command, event, read model, and automation along the way. Nothing is implicit. Nothing is left for developers to guess about.</p>
+
+        <p>Moreover, because each slice is independently implementable, you get the same incremental delivery benefits that user stories promise, but with far greater precision about what each increment actually entails.</p>
+
+        <h2>Enabling AI-Native Development</h2>
+
+        <p>There is another reason Event Modeling is gaining urgency: it is the key to unlocking AI-native software development.</p>
+
+        <p>AI coding assistants are powerful, but they need precise specifications to produce quality output. Vague user stories produce vague code. But an event model slice, with its clearly defined inputs, outputs, business rules, and relationships, gives an AI everything it needs to generate production-quality implementations.</p>
+
+        <p>Each slice is a self-contained unit of work with clear boundaries. The command defines the input. The event defines the output. The business rules define the logic in between. An AI can take this specification and produce a complete, testable implementation, including validation logic, event publishing, and error handling.</p>
+
+        <p>This is not science fiction. At Sliceworkz, we use event models as the primary input for our AI-native development process. The precision of the specifications translates directly into the quality of the AI-generated code. The blueprint becomes the prompt.</p>
+
+        <h2>Getting Started</h2>
+
+        <p>You do not need special tools to start event modeling. A whiteboard and sticky notes work perfectly. Digital tools like Miro or specialized event modeling platforms can help for remote teams and long-term maintenance of the models.</p>
+
+        <p>The process begins with a brainstorming session where you identify the key events in your system. Then you arrange them on a timeline, add commands that trigger them, define the read models that users need, and identify the automations that connect events to subsequent actions.</p>
+
+        <p>The entire system emerges organically from these conversations. And because the notation is so simple, everyone in the room can contribute, regardless of their technical background.</p>
+
+        <p>If your projects suffer from miscommunication, scope creep, or features that do not quite match what the business needed, Event Modeling deserves your serious attention. It is not just a modeling technique. It is a fundamentally better way to build shared understanding about the software you need to create.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-gray blog-related">
+    <div class="container">
+      <h2>Keep reading</h2>
+      <div class="grid grid-3">
+        <a href="domain-driven-design-business.html" class="blog-card">
+          <img src="../images/blog/blog-ddd.svg" alt="Domain-Driven Design" class="blog-card-img">
+          <div class="blog-card-body">
+            <div class="blog-card-tags">
+              <span class="tag tag-blue">DDD</span>
+              <span class="tag tag-green">Architecture</span>
+            </div>
+            <h3>Domain-Driven Design is a Business Strategy, Not a Technical Pattern</h3>
+            <p>DDD isn't about entities and repositories. It's about aligning your software with how your business actually works.</p>
+          </div>
+        </a>
+        <a href="vertical-slice-architecture.html" class="blog-card">
+          <img src="../images/blog/blog-vertical-slice.svg" alt="Vertical Slice Architecture" class="blog-card-img">
+          <div class="blog-card-body">
+            <div class="blog-card-tags">
+              <span class="tag tag-green">Vertical Slice</span>
+              <span class="tag tag-orange">Event Modeling</span>
+            </div>
+            <h3>Vertical Slice Architecture: the End of Layered Spaghetti</h3>
+            <p>Stop organising code by technical layer. Organise by feature, and watch complexity become manageable again.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Want to go deeper?</h2>
+      <p class="lead">Talk to us about how these ideas can transform your next project.</p>
+      <div class="cta-buttons">
+        <a href="../about.html#contact" class="btn btn-primary">Get in touch</a>
+        <a href="../services.html" class="btn btn-outline">Our services</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo"><img src="../images/sliceworkz-logo-white.svg" alt="Sliceworkz" height="28"></div>
+          <p>Reinventing software development.<br>Focus on business.<br>Build with AI.</p>
+          <p class="mt-3" style="font-size:0.8125rem;color:rgba(255,255,255,0.4);">A brand of <a href="https://www.xt-i.com/" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.6);">XTi &ndash; Xtreme Integrations NV</a></p>
+          <div class="mt-3" style="display:flex;gap:1rem;">
+            <a href="https://www.linkedin.com/showcase/sliceworkz/about/" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.6);font-size:0.875rem;font-weight:600;">LinkedIn</a>
+          </div>
+        </div>
+        <div>
+          <h4>Sitemap</h4>
+          <ul>
+            <li><a href="../problem.html">The Problem</a></li>
+            <li><a href="../promise.html">Our Promise</a></li>
+            <li><a href="../results.html">Our Results</a></li>
+            <li><a href="../foundations.html">Foundations</a></li>
+            <li><a href="../techniques.html">Techniques</a></li>
+            <li><a href="../compared.html">Compared</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Services &amp; Solutions</h4>
+          <ul>
+            <li><a href="../services.html">Services</a></li>
+            <li><a href="../solutions.html">Solutions</a></li>
+            <li><a href="../assembly-line.html">Assembly Line</a></li>
+            <li><a href="../outcomes.html">Outcomes</a></li>
+            <li><a href="../open-source.html">Open Source</a></li>
+            <li><a href="../blog.html">Blog</a></li>
+            <li><a href="../about.html">About Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:+3238719960">+32 3 871 99 60</a></li>
+            <li><a href="mailto:info@sliceworkz.com">info@sliceworkz.com</a></li>
+          </ul>
+          <h4 class="mt-4">Offices (Belgium)</h4>
+          <ul>
+            <li style="color:rgba(255,255,255,0.5);font-size:0.8125rem;">Veldkant 33A, 2550 Kontich</li>
+            <li style="color:rgba(255,255,255,0.5);font-size:0.8125rem;">Guldensporenpark, Merelbeke</li>
+            <li style="color:rgba(255,255,255,0.5);font-size:0.8125rem;">Corda Campus, Hasselt</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; XTi &ndash; Xtreme Integrations NV &middot; VAT BE 474.267.543</span>
+        <span>Sliceworkz &ndash; Reinventing Software Development</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

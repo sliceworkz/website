@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <marker id="es-arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#9CA3AF"/>
+    </marker>
+    <marker id="es-arrow-orange" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#F26522"/>
+    </marker>
+    <marker id="es-arrow-green" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#3DD68C"/>
+    </marker>
+    <marker id="es-arrow-red" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#EF4444"/>
+    </marker>
+    <filter id="es-shadow" x="-4%" y="-4%" width="108%" height="116%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.07"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" rx="16" ry="16" fill="#F9FAFB"/>
+
+  <!-- Title -->
+  <text x="400" y="40" text-anchor="middle" font-family="Inter, sans-serif" font-size="22" font-weight="700" fill="#1E1E1E">CRUD vs Event Sourcing</text>
+  <text x="400" y="62" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#9CA3AF">Two fundamentally different approaches to persisting state</text>
+
+  <!-- Divider line -->
+  <line x1="400" y1="85" x2="400" y2="475" stroke="#E5E7EB" stroke-width="1.5" stroke-dasharray="6,4"/>
+
+  <!-- ========== LEFT: CRUD ========== -->
+  <text x="200" y="100" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="#6B7280">CRUD</text>
+  <text x="200" y="118" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#9CA3AF">Current state only</text>
+
+  <!-- Database table -->
+  <rect x="90" y="155" width="220" height="170" rx="10" fill="white" filter="url(#es-shadow)" stroke="#D1D5DB" stroke-width="1.5"/>
+
+  <!-- Table header -->
+  <rect x="90" y="155" width="220" height="35" rx="10" fill="#F3F4F6"/>
+  <rect x="90" y="180" width="220" height="10" fill="#F3F4F6"/>
+  <text x="200" y="177" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#6B7280">orders</text>
+
+  <!-- Column headers -->
+  <text x="115" y="207" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#9CA3AF">id</text>
+  <text x="170" y="207" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#9CA3AF">status</text>
+  <text x="250" y="207" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#9CA3AF">total</text>
+  <line x1="100" y1="213" x2="300" y2="213" stroke="#E5E7EB" stroke-width="1"/>
+
+  <!-- Row 1 (crossed out - overwritten) -->
+  <text x="115" y="232" font-family="Inter, sans-serif" font-size="10" fill="#D1D5DB">#42</text>
+  <text x="170" y="232" font-family="Inter, sans-serif" font-size="10" fill="#D1D5DB" text-decoration="line-through">created</text>
+  <text x="250" y="232" font-family="Inter, sans-serif" font-size="10" fill="#D1D5DB" text-decoration="line-through">$0</text>
+  <line x1="100" y1="228" x2="300" y2="228" stroke="#D1D5DB" stroke-width="0.5" opacity="0.5"/>
+
+  <!-- Row 2 (crossed out - overwritten) -->
+  <text x="115" y="252" font-family="Inter, sans-serif" font-size="10" fill="#D1D5DB">#42</text>
+  <text x="170" y="252" font-family="Inter, sans-serif" font-size="10" fill="#D1D5DB" text-decoration="line-through">confirmed</text>
+  <text x="250" y="252" font-family="Inter, sans-serif" font-size="10" fill="#D1D5DB" text-decoration="line-through">$99</text>
+  <line x1="100" y1="248" x2="300" y2="248" stroke="#D1D5DB" stroke-width="0.5" opacity="0.5"/>
+
+  <!-- Row 3 (current - highlighted) -->
+  <rect x="95" y="258" width="210" height="22" rx="3" fill="#FEF2F2"/>
+  <text x="115" y="274" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#1E1E1E">#42</text>
+  <text x="170" y="274" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#1E1E1E">shipped</text>
+  <text x="250" y="274" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#1E1E1E">$99</text>
+
+  <!-- Overwrite arrow -->
+  <path d="M 78 240 Q 65 255 78 270" fill="none" stroke="#EF4444" stroke-width="2" marker-end="url(#es-arrow-red)"/>
+  <text x="55" y="258" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#EF4444" font-weight="600" transform="rotate(-90,55,258)">overwrite</text>
+
+  <!-- Lost history label -->
+  <rect x="115" y="340" width="170" height="40" rx="8" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+  <text x="200" y="358" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#EF4444" font-weight="500">Previous states are lost</text>
+  <text x="200" y="373" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#9CA3AF">No audit trail, no history</text>
+
+  <!-- X icons for lost data -->
+  <text x="130" y="236" font-family="Inter, sans-serif" font-size="14" fill="#EF4444" opacity="0.4">x</text>
+  <text x="130" y="256" font-family="Inter, sans-serif" font-size="14" fill="#EF4444" opacity="0.4">x</text>
+
+  <!-- ========== RIGHT: EVENT SOURCING ========== -->
+  <text x="600" y="100" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="#F26522">Event Sourcing</text>
+  <text x="600" y="118" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#9CA3AF">Full history of events</text>
+
+  <!-- Event Stream -->
+  <!-- Event 1 -->
+  <rect x="435" y="145" width="155" height="48" rx="8" fill="white" filter="url(#es-shadow)" stroke="#F26522" stroke-width="1.5"/>
+  <circle cx="452" cy="169" r="8" fill="#FEF0E6"/>
+  <text x="452" y="173" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" font-weight="700" fill="#F26522">1</text>
+  <text x="520" y="165" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#1E1E1E">OrderCreated</text>
+  <text x="520" y="180" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#9CA3AF">id: #42, total: $0</text>
+
+  <!-- Event 2 -->
+  <rect x="435" y="203" width="155" height="48" rx="8" fill="white" filter="url(#es-shadow)" stroke="#F26522" stroke-width="1.5"/>
+  <circle cx="452" cy="227" r="8" fill="#FEF0E6"/>
+  <text x="452" y="231" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" font-weight="700" fill="#F26522">2</text>
+  <text x="520" y="223" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#1E1E1E">ItemAdded</text>
+  <text x="520" y="238" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#9CA3AF">item: Widget, price: $99</text>
+
+  <!-- Event 3 -->
+  <rect x="435" y="261" width="155" height="48" rx="8" fill="white" filter="url(#es-shadow)" stroke="#F26522" stroke-width="1.5"/>
+  <circle cx="452" cy="285" r="8" fill="#FEF0E6"/>
+  <text x="452" y="289" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" font-weight="700" fill="#F26522">3</text>
+  <text x="520" y="281" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#1E1E1E">OrderConfirmed</text>
+  <text x="520" y="296" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#9CA3AF">confirmed at: 10:42 AM</text>
+
+  <!-- Event 4 -->
+  <rect x="435" y="319" width="155" height="48" rx="8" fill="white" filter="url(#es-shadow)" stroke="#F26522" stroke-width="1.5"/>
+  <circle cx="452" cy="343" r="8" fill="#FEF0E6"/>
+  <text x="452" y="347" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" font-weight="700" fill="#F26522">4</text>
+  <text x="520" y="339" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#1E1E1E">OrderShipped</text>
+  <text x="520" y="354" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#9CA3AF">tracking: TRK-789</text>
+
+  <!-- Event stream flow line -->
+  <line x1="425" y1="169" x2="425" y2="343" stroke="#F26522" stroke-width="2" opacity="0.3"/>
+  <circle cx="425" cy="169" r="3" fill="#F26522"/>
+  <circle cx="425" cy="227" r="3" fill="#F26522"/>
+  <circle cx="425" cy="285" r="3" fill="#F26522"/>
+  <circle cx="425" cy="343" r="3" fill="#F26522"/>
+
+  <!-- Arrow to Event Store -->
+  <line x1="600" y1="367" x2="600" y2="390" stroke="#F26522" stroke-width="2" marker-end="url(#es-arrow-orange)"/>
+
+  <!-- Event Store -->
+  <rect x="610" y="145" width="150" height="260" rx="10" fill="#1E1E1E" filter="url(#es-shadow)"/>
+  <text x="685" y="175" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="white">Event Store</text>
+  <text x="685" y="195" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#9CA3AF">Append-only log</text>
+
+  <!-- Mini event rows in store -->
+  <rect x="625" y="215" width="120" height="18" rx="4" fill="#2D2D2D"/>
+  <text x="685" y="228" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#F26522">OrderCreated</text>
+  <rect x="625" y="240" width="120" height="18" rx="4" fill="#2D2D2D"/>
+  <text x="685" y="253" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#F26522">ItemAdded</text>
+  <rect x="625" y="265" width="120" height="18" rx="4" fill="#2D2D2D"/>
+  <text x="685" y="278" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#F26522">OrderConfirmed</text>
+  <rect x="625" y="290" width="120" height="18" rx="4" fill="#2D2D2D"/>
+  <text x="685" y="303" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#F26522">OrderShipped</text>
+
+  <!-- Dots indicating more -->
+  <text x="685" y="325" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#6B7280">...</text>
+
+  <!-- Projection arrow -->
+  <path d="M 685 410 L 685 430 Q 685 440 675 440 L 640 440" fill="none" stroke="#3DD68C" stroke-width="2" marker-end="url(#es-arrow-green)"/>
+
+  <!-- Read Model -->
+  <rect x="435" y="420" width="200" height="55" rx="10" fill="white" filter="url(#es-shadow)" stroke="#3DD68C" stroke-width="1.5"/>
+  <rect x="435" y="420" width="200" height="22" rx="10" fill="#ECFDF5"/>
+  <rect x="435" y="435" width="200" height="7" fill="#ECFDF5"/>
+  <text x="535" y="437" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#3DD68C">Read Model (Projection)</text>
+  <text x="535" y="460" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#1E1E1E">status: shipped | $99</text>
+
+  <!-- Projection label -->
+  <text x="720" y="437" font-family="Inter, sans-serif" font-size="9" fill="#3DD68C" font-weight="500">project</text>
+
+  <!-- Flow arrows from events to store -->
+  <line x1="590" y1="169" x2="607" y2="169" stroke="#9CA3AF" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#es-arrow)"/>
+  <line x1="590" y1="227" x2="607" y2="227" stroke="#9CA3AF" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#es-arrow)"/>
+  <line x1="590" y1="285" x2="607" y2="285" stroke="#9CA3AF" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#es-arrow)"/>
+  <line x1="590" y1="343" x2="607" y2="343" stroke="#9CA3AF" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#es-arrow)"/>
+
+  <!-- VS label on divider -->
+  <rect x="384" y="84" width="32" height="24" rx="12" fill="#1E1E1E"/>
+  <text x="400" y="101" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="white">vs</text>
+</svg>

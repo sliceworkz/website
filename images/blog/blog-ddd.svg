@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <marker id="ddd-arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#9CA3AF"/>
+    </marker>
+    <filter id="ddd-shadow" x="-4%" y="-4%" width="108%" height="116%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.07"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" rx="16" ry="16" fill="#F9FAFB"/>
+
+  <!-- Title -->
+  <text x="400" y="42" text-anchor="middle" font-family="Inter, sans-serif" font-size="22" font-weight="700" fill="#1E1E1E">Strategic Domain Map</text>
+  <text x="400" y="64" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#9CA3AF">Bounded contexts organized by subdomain type</text>
+
+  <!-- ========== CORE DOMAIN (Orange, center) ========== -->
+  <rect x="160" y="95" width="370" height="310" rx="14" fill="none" stroke="#F26522" stroke-width="2.5" stroke-dasharray="10,5"/>
+  <rect x="170" y="95" width="110" height="26" rx="6" fill="#F26522"/>
+  <text x="225" y="113" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="white">CORE DOMAIN</text>
+
+  <!-- Core context: Order Processing -->
+  <rect x="195" y="145" width="145" height="70" rx="8" fill="white" filter="url(#ddd-shadow)"/>
+  <rect x="195" y="145" width="145" height="70" rx="8" fill="none" stroke="#F26522" stroke-width="1.5"/>
+  <rect x="195" y="145" width="145" height="24" rx="8" fill="#FEF0E6"/>
+  <rect x="195" y="160" width="145" height="9" fill="#FEF0E6"/>
+  <text x="267" y="163" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#F26522">Bounded Context</text>
+  <text x="267" y="192" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#1E1E1E">Order Processing</text>
+
+  <!-- Core context: Pricing Engine -->
+  <rect x="195" y="240" width="145" height="70" rx="8" fill="white" filter="url(#ddd-shadow)"/>
+  <rect x="195" y="240" width="145" height="70" rx="8" fill="none" stroke="#F26522" stroke-width="1.5"/>
+  <rect x="195" y="240" width="145" height="24" rx="8" fill="#FEF0E6"/>
+  <rect x="195" y="255" width="145" height="9" fill="#FEF0E6"/>
+  <text x="267" y="258" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#F26522">Bounded Context</text>
+  <text x="267" y="287" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#1E1E1E">Pricing Engine</text>
+
+  <!-- Core context: Inventory -->
+  <rect x="365" y="175" width="145" height="70" rx="8" fill="white" filter="url(#ddd-shadow)"/>
+  <rect x="365" y="175" width="145" height="70" rx="8" fill="none" stroke="#F26522" stroke-width="1.5"/>
+  <rect x="365" y="175" width="145" height="24" rx="8" fill="#FEF0E6"/>
+  <rect x="365" y="190" width="145" height="9" fill="#FEF0E6"/>
+  <text x="437" y="193" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#F26522">Bounded Context</text>
+  <text x="437" y="222" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#1E1E1E">Inventory</text>
+
+  <!-- Core context: Fulfillment -->
+  <rect x="365" y="270" width="145" height="70" rx="8" fill="white" filter="url(#ddd-shadow)"/>
+  <rect x="365" y="270" width="145" height="70" rx="8" fill="none" stroke="#F26522" stroke-width="1.5"/>
+  <rect x="365" y="270" width="145" height="24" rx="8" fill="#FEF0E6"/>
+  <rect x="365" y="285" width="145" height="9" fill="#FEF0E6"/>
+  <text x="437" y="288" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#F26522">Bounded Context</text>
+  <text x="437" y="317" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#1E1E1E">Fulfillment</text>
+
+  <!-- Arrows within core -->
+  <line x1="340" y1="180" x2="360" y2="195" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#ddd-arrow)"/>
+  <line x1="340" y1="275" x2="360" y2="290" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#ddd-arrow)"/>
+  <line x1="267" y1="215" x2="267" y2="235" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#ddd-arrow)"/>
+  <line x1="437" y1="245" x2="437" y2="265" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#ddd-arrow)"/>
+
+  <!-- ========== SUPPORTING (Green, right side) ========== -->
+  <rect x="560" y="95" width="215" height="195" rx="14" fill="none" stroke="#3DD68C" stroke-width="2.5" stroke-dasharray="10,5"/>
+  <rect x="570" y="95" width="110" height="26" rx="6" fill="#3DD68C"/>
+  <text x="625" y="113" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="white">SUPPORTING</text>
+
+  <!-- Supporting: Notifications -->
+  <rect x="580" y="140" width="175" height="55" rx="8" fill="white" filter="url(#ddd-shadow)"/>
+  <rect x="580" y="140" width="175" height="55" rx="8" fill="none" stroke="#3DD68C" stroke-width="1.5"/>
+  <text x="667" y="173" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#1E1E1E">Notifications</text>
+
+  <!-- Supporting: Reporting -->
+  <rect x="580" y="210" width="175" height="55" rx="8" fill="white" filter="url(#ddd-shadow)"/>
+  <rect x="580" y="210" width="175" height="55" rx="8" fill="none" stroke="#3DD68C" stroke-width="1.5"/>
+  <text x="667" y="243" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#1E1E1E">Reporting</text>
+
+  <!-- Arrow from Core to Supporting -->
+  <line x1="530" y1="180" x2="575" y2="168" stroke="#9CA3AF" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#ddd-arrow)"/>
+  <line x1="530" y1="260" x2="575" y2="238" stroke="#9CA3AF" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#ddd-arrow)"/>
+
+  <!-- ========== GENERIC (Gray, bottom-right) ========== -->
+  <rect x="560" y="315" width="215" height="160" rx="14" fill="none" stroke="#9CA3AF" stroke-width="2.5" stroke-dasharray="10,5"/>
+  <rect x="570" y="315" width="85" height="26" rx="6" fill="#9CA3AF"/>
+  <text x="612" y="333" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="white">GENERIC</text>
+
+  <!-- Generic: Auth -->
+  <rect x="580" y="360" width="175" height="45" rx="8" fill="white" filter="url(#ddd-shadow)"/>
+  <rect x="580" y="360" width="175" height="45" rx="8" fill="none" stroke="#D1D5DB" stroke-width="1.5"/>
+  <text x="667" y="388" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#6B7280">Authentication</text>
+
+  <!-- Generic: Email -->
+  <rect x="580" y="415" width="175" height="45" rx="8" fill="white" filter="url(#ddd-shadow)"/>
+  <rect x="580" y="415" width="175" height="45" rx="8" fill="none" stroke="#D1D5DB" stroke-width="1.5"/>
+  <text x="667" y="443" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#6B7280">Email Service</text>
+
+  <!-- Arrow from Supporting to Generic -->
+  <line x1="667" y1="290" x2="667" y2="355" stroke="#9CA3AF" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#ddd-arrow)"/>
+
+  <!-- Legend bottom-left -->
+  <rect x="30" y="430" width="120" height="55" rx="8" fill="white" stroke="#E5E7EB" stroke-width="1"/>
+  <text x="90" y="448" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#6B7280">RELATIONSHIPS</text>
+  <line x1="45" y1="458" x2="75" y2="458" stroke="#9CA3AF" stroke-width="1.5"/>
+  <text x="80" y="462" font-family="Inter, sans-serif" font-size="9" fill="#6B7280">Internal</text>
+  <line x1="45" y1="473" x2="75" y2="473" stroke="#9CA3AF" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="80" y="477" font-family="Inter, sans-serif" font-size="9" fill="#6B7280">Cross-domain</text>
+
+  <!-- Subtitle labels for domain types -->
+  <text x="345" y="425" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#F26522" font-weight="500">Competitive advantage - build custom</text>
+  <text x="345" y="445" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#3DD68C" font-weight="500">Necessary - tailored but not core</text>
+  <text x="345" y="465" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#9CA3AF" font-weight="500">Commodity - buy or use off-the-shelf</text>
+</svg>

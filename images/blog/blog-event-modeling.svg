@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#9CA3AF"/>
+    </marker>
+    <filter id="shadow1" x="-4%" y="-4%" width="108%" height="116%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" rx="16" ry="16" fill="#F9FAFB"/>
+
+  <!-- Title -->
+  <text x="400" y="52" text-anchor="middle" font-family="Inter, sans-serif" font-size="22" font-weight="700" fill="#1E1E1E">Event Model Timeline</text>
+  <text x="400" y="76" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#9CA3AF">The four slice types that compose an event model</text>
+
+  <!-- Timeline line -->
+  <line x1="60" y1="280" x2="740" y2="280" stroke="#E5E7EB" stroke-width="3" stroke-linecap="round"/>
+  <!-- Timeline dots -->
+  <circle cx="140" cy="280" r="6" fill="#1890FF"/>
+  <circle cx="310" cy="280" r="6" fill="#3DD68C"/>
+  <circle cx="490" cy="280" r="6" fill="#F26522"/>
+  <circle cx="660" cy="280" r="6" fill="#1E1E1E"/>
+
+  <!-- Time arrow label -->
+  <text x="400" y="320" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#9CA3AF" letter-spacing="3">TIME</text>
+  <line x1="320" y1="316" x2="290" y2="316" stroke="#9CA3AF" stroke-width="1" marker-end="none"/>
+  <polygon points="285,316 292,313 292,319" fill="#9CA3AF"/>
+  <line x1="480" y1="316" x2="510" y2="316" stroke="#9CA3AF" stroke-width="1"/>
+  <polygon points="515,316 508,313 508,319" fill="#9CA3AF"/>
+
+  <!-- Box 1: Read Model (Blue) -->
+  <rect x="75" y="150" width="130" height="100" rx="10" fill="#1890FF" filter="url(#shadow1)"/>
+  <rect x="75" y="150" width="130" height="100" rx="10" fill="none" stroke="#1476D4" stroke-width="1"/>
+  <!-- Icon: Eye -->
+  <ellipse cx="140" cy="190" rx="18" ry="12" fill="none" stroke="white" stroke-width="2"/>
+  <circle cx="140" cy="190" r="6" fill="white"/>
+  <text x="140" y="228" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="white">Read Model</text>
+  <!-- Subtitle -->
+  <text x="140" y="370" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#1890FF" font-weight="500">View / Query</text>
+  <text x="140" y="388" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#9CA3AF">What the user sees</text>
+
+  <!-- Arrow 1->2 -->
+  <line x1="215" y1="200" x2="235" y2="200" stroke="#9CA3AF" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Box 2: Command (Green) -->
+  <rect x="245" y="150" width="130" height="100" rx="10" fill="#3DD68C" filter="url(#shadow1)"/>
+  <rect x="245" y="150" width="130" height="100" rx="10" fill="none" stroke="#2FB874" stroke-width="1"/>
+  <!-- Icon: Play/Action arrow -->
+  <polygon points="297,183 323,193 297,203" fill="white"/>
+  <text x="310" y="228" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="white">Command</text>
+  <!-- Subtitle -->
+  <text x="310" y="370" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#3DD68C" font-weight="500">Action / Intent</text>
+  <text x="310" y="388" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#9CA3AF">What the user does</text>
+
+  <!-- Arrow 2->3 -->
+  <line x1="385" y1="200" x2="415" y2="200" stroke="#9CA3AF" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Box 3: Event (Orange) -->
+  <rect x="425" y="150" width="130" height="100" rx="10" fill="#F26522" filter="url(#shadow1)"/>
+  <rect x="425" y="150" width="130" height="100" rx="10" fill="none" stroke="#D4541A" stroke-width="1"/>
+  <!-- Icon: Lightning bolt -->
+  <polygon points="490,178 483,196 493,196 486,214 500,192 490,192 497,178" fill="white"/>
+  <text x="490" y="228" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="white">Event</text>
+  <!-- Subtitle -->
+  <text x="490" y="370" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#F26522" font-weight="500">Fact / Record</text>
+  <text x="490" y="388" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#9CA3AF">What happened</text>
+
+  <!-- Arrow 3->4 -->
+  <line x1="565" y1="200" x2="585" y2="200" stroke="#9CA3AF" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Box 4: Automation (Dark) -->
+  <rect x="595" y="150" width="130" height="100" rx="10" fill="#1E1E1E" filter="url(#shadow1)"/>
+  <rect x="595" y="150" width="130" height="100" rx="10" fill="none" stroke="#333333" stroke-width="1"/>
+  <!-- Icon: Gear -->
+  <circle cx="660" cy="190" r="10" fill="none" stroke="white" stroke-width="2"/>
+  <circle cx="660" cy="190" r="4" fill="white"/>
+  <line x1="660" y1="176" x2="660" y2="180" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="660" y1="200" x2="660" y2="204" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="646" y1="190" x2="650" y2="190" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="670" y1="190" x2="674" y2="190" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="660" y="228" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="white">Automation</text>
+  <!-- Subtitle -->
+  <text x="660" y="370" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#6B7280" font-weight="500">Processor / Policy</text>
+  <text x="660" y="388" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#9CA3AF">What reacts</text>
+
+  <!-- Loopback arrow from Automation back to Read Model -->
+  <path d="M 660 260 L 660 430 Q 660 445 645 445 L 155 445 Q 140 445 140 430 L 140 260" fill="none" stroke="#E5E7EB" stroke-width="2" stroke-dasharray="6,4"/>
+  <polygon points="140,258 136,268 144,268" fill="#E5E7EB"/>
+  <text x="400" y="460" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#9CA3AF">Cycle continues: automation triggers new read models</text>
+
+  <!-- Legend row at very top -->
+  <rect x="230" y="100" width="10" height="10" rx="2" fill="#1890FF"/>
+  <text x="245" y="110" font-family="Inter, sans-serif" font-size="9" fill="#6B7280">Query</text>
+  <rect x="290" y="100" width="10" height="10" rx="2" fill="#3DD68C"/>
+  <text x="305" y="110" font-family="Inter, sans-serif" font-size="9" fill="#6B7280">Intent</text>
+  <rect x="345" y="100" width="10" height="10" rx="2" fill="#F26522"/>
+  <text x="360" y="110" font-family="Inter, sans-serif" font-size="9" fill="#6B7280">Fact</text>
+  <rect x="395" y="100" width="10" height="10" rx="2" fill="#1E1E1E"/>
+  <text x="410" y="110" font-family="Inter, sans-serif" font-size="9" fill="#6B7280">Reactor</text>
+</svg>

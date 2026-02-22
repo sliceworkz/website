@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What AI-Native Development Actually Means | Sliceworkz Blog</title>
+  <meta name="description" content="It's not about using Copilot. AI-native development means structuring your entire process so AI can contribute at every stage.">
+  <link rel="icon" type="image/png" href="../images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <a href="../index.html" class="logo"><img src="../images/sliceworkz-logo-dark.svg" alt="Sliceworkz" height="28"></a>
+      <div class="nav-links" id="navLinks">
+        <div class="nav-dropdown">
+          <a href="#">Why</a>
+          <div class="dropdown-menu">
+            <a href="../problem.html">The Problem</a>
+            <a href="../promise.html">Our Promise</a>
+            <a href="../results.html">Our Results</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="#">AI-Native Software Factory</a>
+          <div class="dropdown-menu">
+            <a href="../foundations.html">Foundations</a>
+            <a href="../techniques.html">Techniques</a>
+            <a href="../assembly-line.html">Assembly Line</a>
+            <a href="../compared.html">Compared</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="#">Services &amp; Solutions</a>
+          <div class="dropdown-menu">
+            <a href="../services.html">Services</a>
+            <a href="../solutions.html">Solutions</a>
+            <a href="../outcomes.html">Outcomes</a>
+          </div>
+        </div>
+        <a href="../open-source.html">Open Source</a>
+        <a href="../blog.html" class="active">Blog</a>
+        <a href="../about.html">About</a>
+        <a href="../about.html#contact" class="btn btn-primary" style="margin-left:0.5rem;">Contact</a>
+      </div>
+      <button class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <section class="page-hero gray-bg">
+    <div class="container">
+      <a href="../blog.html" class="blog-back-link">&larr; All articles</a>
+      <div class="blog-post-hero-tags">
+        <span class="tag tag-orange">AI-Native</span>
+        <span class="tag tag-blue">Vertical Slice</span>
+      </div>
+      <h1>What AI-Native Development Actually Means</h1>
+      <p class="lead">It's not about using Copilot. AI-native development means structuring your entire process so AI can contribute at every stage.</p>
+    </div>
+    <div class="page-hero-geo"></div>
+  </section>
+
+  <section class="section-light">
+    <div class="container">
+      <div class="blog-post-content">
+        <img src="../images/blog/blog-ai-native.svg" alt="AI-Native Development illustration" class="blog-post-img">
+
+        <p>The software industry is awash with AI hype. Every IDE has a copilot. Every platform promises "AI-powered development." Every conference talk suggests that AI is about to replace developers. And almost all of it misses the point.</p>
+
+        <p>What most companies call "AI-assisted development" is bolting a language model onto an unchanged development process. A developer writes code the same way they always have, but now an autocomplete suggestion appears every few keystrokes. This is useful. It saves time on boilerplate. It helps with syntax. But it is not transformative. It is an incremental improvement to the typing speed of developers who were not bottlenecked by typing speed in the first place.</p>
+
+        <p>AI-native development is something fundamentally different. It is not about adding AI to your existing process. It is about redesigning your entire process from the ground up so that AI can contribute meaningfully at every stage, from specification to implementation to testing to deployment.</p>
+
+        <h2>AI-Assisted vs AI-Native: the Critical Distinction</h2>
+
+        <p>AI-assisted development treats AI as a tool that helps individual developers write code faster. The developer is still the unit of production. The process is still organized around developers reading requirements, designing solutions, and writing code. AI just makes each developer marginally more productive.</p>
+
+        <p>AI-native development treats AI as a fundamental participant in the development process. The process is redesigned so that specifications are structured in ways AI can consume. Work is decomposed into units that AI can handle independently. Quality is ensured through automated verification rather than manual review. The human role shifts from writing code to defining intent, verifying output, and handling the genuinely complex decisions that AI cannot yet make.</p>
+
+        <p>The difference is analogous to the transition from horse-drawn carriages to automobiles. AI-assisted development is putting a motor on a carriage. AI-native development is designing a vehicle from scratch around the capabilities of the motor.</p>
+
+        <h2>Why Current AI Coding Tools Fall Short</h2>
+
+        <p>Current AI coding tools are impressive in isolation but limited in impact. The reason is not that the AI is not good enough. The reason is that the development process does not give the AI what it needs to be truly effective.</p>
+
+        <p>Consider what a typical AI coding assistant receives as context: the current file, perhaps a few related files, and a brief natural language instruction. From this fragmentary information, it must infer the architecture of the system, the business rules in play, the coding conventions of the team, and the specific requirements of the feature being built. No wonder the output is often technically correct but architecturally misaligned.</p>
+
+        <p>The problem is not the AI. The problem is the information environment. Current development processes produce specifications that are ambiguous, scattered across multiple documents, and full of implicit assumptions that experienced developers understand but AI cannot infer.</p>
+
+        <blockquote>
+          <p>"The quality of AI-generated code is directly proportional to the quality of the specifications it receives. Garbage in, garbage out. Precise specifications in, production-quality code out."</p>
+        </blockquote>
+
+        <h2>Event Models as AI-Readable Specifications</h2>
+
+        <p>This is where event modeling becomes the enabler of AI-native development. An event model is, by its nature, a structured, precise, complete specification of a system's behaviour. Each slice defines:</p>
+
+        <ul>
+          <li>The exact inputs (command data or trigger events)</li>
+          <li>The exact outputs (events produced or read model data returned)</li>
+          <li>The business rules that govern the transformation</li>
+          <li>The relationships to other parts of the system</li>
+          <li>The acceptance criteria in business language</li>
+        </ul>
+
+        <p>This is precisely the information an AI needs to generate a correct implementation. Not a vague user story. Not a technical specification full of implementation details that constrain the AI's options. A clear statement of what the slice does, in business terms, with precise boundaries.</p>
+
+        <p>When you feed an event model slice to an AI, along with the established patterns and conventions of your codebase, the AI has everything it needs. The business rules are explicit. The data structures are defined. The boundaries are clear. The result is code that is not just syntactically correct but semantically aligned with the business intent.</p>
+
+        <h2>Vertical Slices as Units of AI Work</h2>
+
+        <p>The second prerequisite for AI-native development is work decomposition. AI performs best on well-defined, independent units of work. Give an AI a vague, cross-cutting task like "improve the user experience," and you will get vague, cross-cutting changes. Give it a precise, bounded task like "implement this specific command that validates these inputs, applies these business rules, and produces these events," and you will get a precise, bounded implementation.</p>
+
+        <p>Vertical slices provide exactly this decomposition. Each slice is a complete, independent feature that cuts through all technical layers: from user interface to business logic to data storage. It has clear inputs, clear outputs, and clear business rules. It can be implemented, tested, and deployed independently.</p>
+
+        <p>This independence is crucial for AI-native development. It means multiple slices can be generated in parallel. It means a failure in one slice does not cascade to others. It means each slice can be reviewed and verified independently. The development process becomes massively parallelizable, with AI handling the implementation of individual slices while humans focus on specification, review, and integration.</p>
+
+        <h2>The Human-AI Collaboration Loop</h2>
+
+        <p>AI-native development does not eliminate humans. It redefines their role. The collaboration follows a clear pattern:</p>
+
+        <ul>
+          <li><strong>Humans define intent.</strong> Business stakeholders and domain experts create the event model, specifying what the system should do in business language. This is inherently a human activity because it requires understanding of business strategy, customer needs, and organizational context.</li>
+          <li><strong>AI generates implementation.</strong> Given the precise specifications from the event model, AI produces code, tests, and infrastructure configurations. It handles the mechanical translation from "what" to "how."</li>
+          <li><strong>Humans verify alignment.</strong> Domain experts review the behaviour of the generated system against the specifications. Not the code, the behaviour. Does it do what the event model says it should do? This verification can be substantially automated through specification-based testing.</li>
+          <li><strong>Humans handle exceptions.</strong> When AI encounters ambiguity, novel situations, or genuinely complex logic that requires creative problem-solving, humans step in. These are the high-value activities where human judgment is irreplaceable.</li>
+        </ul>
+
+        <p>This loop is fundamentally different from the traditional "developer writes code" model. The human contribution shifts from implementation (which AI can do) to specification and judgment (which AI cannot). The result is that human effort is concentrated on the activities where it creates the most value.</p>
+
+        <h2>Why Business-Focused Specifications Enable Better AI Output</h2>
+
+        <p>There is a counterintuitive insight at the heart of AI-native development: business-focused specifications produce better code than technical specifications.</p>
+
+        <p>When you give AI a technical specification, "Create a REST endpoint that accepts a JSON payload with fields X, Y, Z, validates them, stores them in a PostgreSQL table, and returns a 201," you have already made all the design decisions. The AI is reduced to a typist, translating your decisions into syntax. And if any of your decisions are suboptimal, the AI will faithfully implement them.</p>
+
+        <p>When you give AI a business specification, "When a customer places an order, validate that all items are in stock and the customer's credit limit is not exceeded, then record that the order was placed," the AI can bring its knowledge of patterns, best practices, and your codebase's conventions to bear on the implementation. It can choose appropriate data structures, apply relevant design patterns, and handle edge cases that you might not have considered.</p>
+
+        <p>The business specification defines the "what" and lets the AI figure out the "how." This is where AI adds the most value: not in typing code faster, but in making sound implementation decisions within clearly defined business constraints.</p>
+
+        <h2>The Path Forward</h2>
+
+        <p>Moving to AI-native development is not a matter of buying new tools. It is a matter of changing how you think about software development. The key shifts are:</p>
+
+        <ul>
+          <li><strong>From code-first to specification-first.</strong> Invest in precise, structured specifications before any implementation begins. Event modeling provides the methodology.</li>
+          <li><strong>From monolithic features to vertical slices.</strong> Decompose work into independent, AI-implementable units. Vertical slice architecture provides the structure.</li>
+          <li><strong>From manual review to automated verification.</strong> Build specifications that can be mechanically verified, not just manually inspected. Event-based testing provides the mechanism.</li>
+          <li><strong>From developer-centric to process-centric.</strong> Focus on the quality of the process rather than the heroics of individual developers. The process should produce consistent quality regardless of who (or what) does the implementation.</li>
+        </ul>
+
+        <p>At Sliceworkz, we have built our entire practice around these principles. Our AI-native software factory uses event modeling for specification, vertical slices for decomposition, and AI for implementation. The result is software that is delivered faster, costs less, and more accurately reflects what the business actually needs.</p>
+
+        <p>This is not the future of software development. It is the present. The only question is how long it takes for the rest of the industry to catch up.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-gray blog-related">
+    <div class="container">
+      <h2>Keep reading</h2>
+      <div class="grid grid-3">
+        <a href="vertical-slice-architecture.html" class="blog-card">
+          <img src="../images/blog/blog-vertical-slice.svg" alt="Vertical Slice Architecture" class="blog-card-img">
+          <div class="blog-card-body">
+            <div class="blog-card-tags">
+              <span class="tag tag-green">Vertical Slice</span>
+              <span class="tag tag-orange">Event Modeling</span>
+            </div>
+            <h3>Vertical Slice Architecture: the End of Layered Spaghetti</h3>
+            <p>Stop organising code by technical layer. Organise by feature, and watch complexity become manageable again.</p>
+          </div>
+        </a>
+        <a href="event-modeling-blueprint.html" class="blog-card">
+          <img src="../images/technique-event-modeling.svg" alt="Event Modeling" class="blog-card-img">
+          <div class="blog-card-body">
+            <div class="blog-card-tags">
+              <span class="tag tag-orange">Event Modeling</span>
+              <span class="tag tag-blue">DDD</span>
+            </div>
+            <h3>Event Modeling: the Blueprint Your Software Project Needs</h3>
+            <p>Most software projects fail not because of bad code, but because nobody truly understood what needed to be built.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Want to go deeper?</h2>
+      <p class="lead">Talk to us about how these ideas can transform your next project.</p>
+      <div class="cta-buttons">
+        <a href="../about.html#contact" class="btn btn-primary">Get in touch</a>
+        <a href="../services.html" class="btn btn-outline">Our services</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo"><img src="../images/sliceworkz-logo-white.svg" alt="Sliceworkz" height="28"></div>
+          <p>Reinventing software development.<br>Focus on business.<br>Build with AI.</p>
+          <p class="mt-3" style="font-size:0.8125rem;color:rgba(255,255,255,0.4);">A brand of <a href="https://www.xt-i.com/" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.6);">XTi &ndash; Xtreme Integrations NV</a></p>
+          <div class="mt-3" style="display:flex;gap:1rem;">
+            <a href="https://www.linkedin.com/showcase/sliceworkz/about/" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.6);font-size:0.875rem;font-weight:600;">LinkedIn</a>
+          </div>
+        </div>
+        <div>
+          <h4>Sitemap</h4>
+          <ul>
+            <li><a href="../problem.html">The Problem</a></li>
+            <li><a href="../promise.html">Our Promise</a></li>
+            <li><a href="../results.html">Our Results</a></li>
+            <li><a href="../foundations.html">Foundations</a></li>
+            <li><a href="../techniques.html">Techniques</a></li>
+            <li><a href="../compared.html">Compared</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Services &amp; Solutions</h4>
+          <ul>
+            <li><a href="../services.html">Services</a></li>
+            <li><a href="../solutions.html">Solutions</a></li>
+            <li><a href="../assembly-line.html">Assembly Line</a></li>
+            <li><a href="../outcomes.html">Outcomes</a></li>
+            <li><a href="../open-source.html">Open Source</a></li>
+            <li><a href="../blog.html">Blog</a></li>
+            <li><a href="../about.html">About Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:+3238719960">+32 3 871 99 60</a></li>
+            <li><a href="mailto:info@sliceworkz.com">info@sliceworkz.com</a></li>
+          </ul>
+          <h4 class="mt-4">Offices (Belgium)</h4>
+          <ul>
+            <li style="color:rgba(255,255,255,0.5);font-size:0.8125rem;">Veldkant 33A, 2550 Kontich</li>
+            <li style="color:rgba(255,255,255,0.5);font-size:0.8125rem;">Guldensporenpark, Merelbeke</li>
+            <li style="color:rgba(255,255,255,0.5);font-size:0.8125rem;">Corda Campus, Hasselt</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; XTi &ndash; Xtreme Integrations NV &middot; VAT BE 474.267.543</span>
+        <span>Sliceworkz &ndash; Reinventing Software Development</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

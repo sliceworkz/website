@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Domain-Driven Design is a Business Strategy, Not a Technical Pattern | Sliceworkz Blog</title>
+  <meta name="description" content="DDD isn't about entities and repositories. It's about aligning your software with how your business actually works.">
+  <link rel="icon" type="image/png" href="../images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <a href="../index.html" class="logo"><img src="../images/sliceworkz-logo-dark.svg" alt="Sliceworkz" height="28"></a>
+      <div class="nav-links" id="navLinks">
+        <div class="nav-dropdown">
+          <a href="#">Why</a>
+          <div class="dropdown-menu">
+            <a href="../problem.html">The Problem</a>
+            <a href="../promise.html">Our Promise</a>
+            <a href="../results.html">Our Results</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="#">AI-Native Software Factory</a>
+          <div class="dropdown-menu">
+            <a href="../foundations.html">Foundations</a>
+            <a href="../techniques.html">Techniques</a>
+            <a href="../assembly-line.html">Assembly Line</a>
+            <a href="../compared.html">Compared</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="#">Services &amp; Solutions</a>
+          <div class="dropdown-menu">
+            <a href="../services.html">Services</a>
+            <a href="../solutions.html">Solutions</a>
+            <a href="../outcomes.html">Outcomes</a>
+          </div>
+        </div>
+        <a href="../open-source.html">Open Source</a>
+        <a href="../blog.html" class="active">Blog</a>
+        <a href="../about.html">About</a>
+        <a href="../about.html#contact" class="btn btn-primary" style="margin-left:0.5rem;">Contact</a>
+      </div>
+      <button class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <section class="page-hero gray-bg">
+    <div class="container">
+      <a href="../blog.html" class="blog-back-link">&larr; All articles</a>
+      <div class="blog-post-hero-tags">
+        <span class="tag tag-blue">DDD</span>
+        <span class="tag tag-green">Architecture</span>
+      </div>
+      <h1>Domain-Driven Design is a Business Strategy, Not a Technical Pattern</h1>
+      <p class="lead">DDD isn't about entities and repositories. It's about aligning your software with how your business actually works.</p>
+    </div>
+    <div class="page-hero-geo"></div>
+  </section>
+
+  <section class="section-light">
+    <div class="container">
+      <div class="blog-post-content">
+        <img src="../images/blog/blog-ddd.svg" alt="Domain-Driven Design illustration" class="blog-post-img">
+
+        <p>Ask most developers what Domain-Driven Design means, and you will hear about aggregates, repositories, value objects, and entities. You will hear about technical patterns and code organization. You will hear about infrastructure layers and dependency injection.</p>
+
+        <p>You will almost never hear about the business.</p>
+
+        <p>This is the great irony of DDD. Eric Evans created it specifically to bridge the gap between business reality and software implementation. Yet the community has, over twenty years, managed to reduce it to a collection of coding patterns that can be applied without ever talking to a business stakeholder. The strategic heart of DDD has been buried under tactical convenience.</p>
+
+        <p>It is time to correct this. Because when you understand DDD as a business strategy, it becomes one of the most powerful tools available for building software that actually matters.</p>
+
+        <h2>The Ubiquitous Language: More Than Naming Conventions</h2>
+
+        <p>The concept of ubiquitous language is the single most important idea in Domain-Driven Design, and it is the one most frequently dismissed as trivial.</p>
+
+        <p>Ubiquitous language is not about naming your classes after business concepts instead of technical patterns. It is about creating a shared vocabulary that is used consistently by everyone involved in the project: business experts, developers, testers, product managers. The same words, with the same meanings, in conversations, in documentation, in code, and in tests.</p>
+
+        <p>Consider what happens without it. A business expert says "customer account." A developer hears "user profile." A database designer creates a table called "clients." A frontend developer builds a component called "PersonDetails." Everyone is talking about the same thing, but using different words. Each translation is an opportunity for misunderstanding. Each misunderstanding is a latent bug.</p>
+
+        <blockquote>
+          <p>"Every translation between the language of business and the language of code is a source of errors. The ubiquitous language eliminates translations entirely."</p>
+        </blockquote>
+
+        <p>When the ubiquitous language is truly ubiquitous, a business expert can read a test and verify its correctness. A developer can attend a strategy meeting and immediately understand the software implications. The gap between "what the business needs" and "what the code does" narrows to nothing.</p>
+
+        <h2>Strategic DDD: Where the Real Value Lives</h2>
+
+        <p>Eric Evans divided DDD into two parts: strategic design and tactical design. The industry has overwhelmingly focused on tactical design, the coding patterns. But strategic design is where the transformative value lies.</p>
+
+        <p>Strategic DDD is about understanding the structure of your business domain and making deliberate decisions about how your software mirrors that structure. It answers questions that no amount of clean code can address: Where should we invest our best engineering effort? Which parts of the system are truly unique to our business? Where can we use off-the-shelf solutions? How should different parts of the system relate to each other?</p>
+
+        <p>These are business questions with profound technical consequences. Getting them wrong means building bespoke software for problems that have commodity solutions, or worse, treating your core competitive advantage as a generic technical problem.</p>
+
+        <h2>Bounded Contexts: Drawing the Right Lines</h2>
+
+        <p>A bounded context is a boundary within which a particular model applies consistently. Within that boundary, every term has a precise, unambiguous meaning. Across boundaries, the same word might mean something entirely different, and that is perfectly acceptable.</p>
+
+        <p>Consider the word "product" in a retail business. In the catalog context, a product has a description, images, categories, and specifications. In the pricing context, a product has a base price, discount rules, and tax categories. In the warehouse context, a product has dimensions, weight, shelf location, and stock levels. In the shipping context, a product has packaging requirements and handling instructions.</p>
+
+        <p>These are not four views of the same object. They are four fundamentally different models that happen to share a name. Trying to create a single "Product" class that serves all four contexts creates a monstrosity: hundreds of fields, contradictory business rules, and a change in one context breaking behaviour in another.</p>
+
+        <p>Bounded contexts give you permission to have multiple models, each optimised for its own purpose. They are not about technical isolation (though that follows naturally). They are about recognising that a complex business has multiple internally consistent models that should not be forced into artificial unity.</p>
+
+        <h2>Core, Supporting, and Generic Subdomains</h2>
+
+        <p>Perhaps the most strategically valuable concept in DDD is the classification of subdomains into three categories: core, supporting, and generic.</p>
+
+        <ul>
+          <li><strong>Core subdomains</strong> are your competitive advantage. They represent what makes your business unique. These deserve your best engineers, the most careful design, and the most rigorous testing. If you are a logistics company, your routing and optimization algorithms are core. If you are a trading platform, your matching engine is core.</li>
+          <li><strong>Supporting subdomains</strong> are necessary for your business to function but do not provide competitive differentiation. They still need to be custom-built because no off-the-shelf solution fits, but they do not need the same level of engineering investment as core subdomains. They need to work reliably, not innovatively.</li>
+          <li><strong>Generic subdomains</strong> are problems that have been solved many times before. Authentication, email sending, payment processing, file storage. For these, buy or use open source. Do not build them. Every hour spent building a generic subdomain is an hour stolen from your core domain.</li>
+        </ul>
+
+        <p>This classification has immediate, concrete consequences for staffing, budgeting, and architecture. It tells you where to invest, where to economize, and where to outsource. No purely technical analysis can provide these answers. They require understanding the business strategy.</p>
+
+        <h2>Why Most Teams Get DDD Wrong</h2>
+
+        <p>The pattern is depressingly common. A team reads about DDD. They start creating aggregates, entities, and value objects. They build repository interfaces and implement domain services. They feel good about their clean architecture.</p>
+
+        <p>But they never talk to the business. They never discover the ubiquitous language. They never identify bounded contexts based on how the business actually operates. They never classify their subdomains to understand where to focus effort.</p>
+
+        <p>The result is technically sophisticated code that is structurally misaligned with the business. The aggregates do not match real business boundaries. The domain events do not correspond to things the business cares about. The bounded contexts, if they exist at all, follow technical seams rather than business seams.</p>
+
+        <p>This is worse than not using DDD at all, because the team believes they are doing the right thing. They have invested in complex abstractions without gaining the strategic alignment that makes those abstractions worthwhile.</p>
+
+        <h2>DDD Drives Better Architecture Decisions</h2>
+
+        <p>When DDD is practiced strategically, architecture decisions become clearer and more defensible.</p>
+
+        <p>Should we use microservices? The answer depends on your bounded contexts. If you have clearly defined boundaries with different rates of change and different scaling requirements, microservices along those boundaries make sense. If your bounded contexts are tightly coupled and change together, a modular monolith serves you better.</p>
+
+        <p>Should we use event sourcing? Perhaps for your core subdomain, where the complete history of state changes has business value. Probably not for your supporting subdomains, where simple CRUD is sufficient and the added complexity is not justified.</p>
+
+        <p>Should we invest in a sophisticated domain model? Absolutely for your core domain, where the business rules are complex and constantly evolving. A simple transaction script might be perfectly appropriate for a supporting subdomain with straightforward logic.</p>
+
+        <p>These are nuanced answers, and they are only possible when you understand the strategic context. Without DDD's strategic tools, architecture decisions tend to be all-or-nothing: either everything is microservices or nothing is. Either everything is event-sourced or nothing is. This uniformity either over-engineers simple parts of the system or under-engineers complex ones.</p>
+
+        <h2>Starting with Strategy</h2>
+
+        <p>If you want to practice DDD effectively, start with the strategic tools. Have conversations with business stakeholders about what makes your business unique. Map out the different areas of your domain and how they relate. Identify the language used in each area and make it explicit.</p>
+
+        <p>Only then, once you understand the strategic landscape, should you reach for tactical patterns. And when you do, apply them selectively. Use sophisticated patterns where the domain complexity justifies them. Use simple patterns where it does not.</p>
+
+        <p>DDD is not a way to write code. It is a way to think about your business and translate that thinking into software that faithfully serves the business's needs. When practiced as a business strategy, it is transformative. When practiced as a coding technique, it is just another source of accidental complexity.</p>
+
+        <p>Choose the strategic path. Your business, and your codebase, will thank you.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-gray blog-related">
+    <div class="container">
+      <h2>Keep reading</h2>
+      <div class="grid grid-3">
+        <a href="event-modeling-blueprint.html" class="blog-card">
+          <img src="../images/technique-event-modeling.svg" alt="Event Modeling" class="blog-card-img">
+          <div class="blog-card-body">
+            <div class="blog-card-tags">
+              <span class="tag tag-orange">Event Modeling</span>
+              <span class="tag tag-blue">DDD</span>
+            </div>
+            <h3>Event Modeling: the Blueprint Your Software Project Needs</h3>
+            <p>Most software projects fail not because of bad code, but because nobody truly understood what needed to be built.</p>
+          </div>
+        </a>
+        <a href="event-sourcing-explained.html" class="blog-card">
+          <img src="../images/blog/blog-event-sourcing.svg" alt="Event Sourcing" class="blog-card-img">
+          <div class="blog-card-body">
+            <div class="blog-card-tags">
+              <span class="tag tag-orange">Event Sourcing</span>
+              <span class="tag tag-green">Architecture</span>
+            </div>
+            <h3>Event Sourcing: Stop Losing Data You Never Knew You Needed</h3>
+            <p>Traditional databases overwrite history. Event sourcing keeps every change, giving you a complete audit trail and the power to rebuild any state.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Want to go deeper?</h2>
+      <p class="lead">Talk to us about how these ideas can transform your next project.</p>
+      <div class="cta-buttons">
+        <a href="../about.html#contact" class="btn btn-primary">Get in touch</a>
+        <a href="../services.html" class="btn btn-outline">Our services</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo"><img src="../images/sliceworkz-logo-white.svg" alt="Sliceworkz" height="28"></div>
+          <p>Reinventing software development.<br>Focus on business.<br>Build with AI.</p>
+          <p class="mt-3" style="font-size:0.8125rem;color:rgba(255,255,255,0.4);">A brand of <a href="https://www.xt-i.com/" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.6);">XTi &ndash; Xtreme Integrations NV</a></p>
+          <div class="mt-3" style="display:flex;gap:1rem;">
+            <a href="https://www.linkedin.com/showcase/sliceworkz/about/" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.6);font-size:0.875rem;font-weight:600;">LinkedIn</a>
+          </div>
+        </div>
+        <div>
+          <h4>Sitemap</h4>
+          <ul>
+            <li><a href="../problem.html">The Problem</a></li>
+            <li><a href="../promise.html">Our Promise</a></li>
+            <li><a href="../results.html">Our Results</a></li>
+            <li><a href="../foundations.html">Foundations</a></li>
+            <li><a href="../techniques.html">Techniques</a></li>
+            <li><a href="../compared.html">Compared</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Services &amp; Solutions</h4>
+          <ul>
+            <li><a href="../services.html">Services</a></li>
+            <li><a href="../solutions.html">Solutions</a></li>
+            <li><a href="../assembly-line.html">Assembly Line</a></li>
+            <li><a href="../outcomes.html">Outcomes</a></li>
+            <li><a href="../open-source.html">Open Source</a></li>
+            <li><a href="../blog.html">Blog</a></li>
+            <li><a href="../about.html">About Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:+3238719960">+32 3 871 99 60</a></li>
+            <li><a href="mailto:info@sliceworkz.com">info@sliceworkz.com</a></li>
+          </ul>
+          <h4 class="mt-4">Offices (Belgium)</h4>
+          <ul>
+            <li style="color:rgba(255,255,255,0.5);font-size:0.8125rem;">Veldkant 33A, 2550 Kontich</li>
+            <li style="color:rgba(255,255,255,0.5);font-size:0.8125rem;">Guldensporenpark, Merelbeke</li>
+            <li style="color:rgba(255,255,255,0.5);font-size:0.8125rem;">Corda Campus, Hasselt</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; XTi &ndash; Xtreme Integrations NV &middot; VAT BE 474.267.543</span>
+        <span>Sliceworkz &ndash; Reinventing Software Development</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

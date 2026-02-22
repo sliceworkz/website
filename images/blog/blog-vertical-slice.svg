@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <marker id="vs-arrow-red" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#EF4444"/>
+    </marker>
+    <filter id="vs-shadow" x="-4%" y="-4%" width="108%" height="116%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.07"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" rx="16" ry="16" fill="#F9FAFB"/>
+
+  <!-- Title -->
+  <text x="400" y="40" text-anchor="middle" font-family="Inter, sans-serif" font-size="22" font-weight="700" fill="#1E1E1E">Layered vs Vertical Slice Architecture</text>
+  <text x="400" y="62" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#9CA3AF">Organizing code by layers versus by feature</text>
+
+  <!-- Divider line -->
+  <line x1="400" y1="78" x2="400" y2="475" stroke="#E5E7EB" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <rect x="384" y="72" width="32" height="24" rx="12" fill="#1E1E1E"/>
+  <text x="400" y="89" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="white">vs</text>
+
+  <!-- ========== LEFT: Layered Architecture ========== -->
+  <text x="200" y="100" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="#6B7280">Layered Architecture</text>
+
+  <!-- Layer 1: UI -->
+  <rect x="60" y="130" width="280" height="60" rx="8" fill="white" filter="url(#vs-shadow)" stroke="#D1D5DB" stroke-width="1.5"/>
+  <rect x="60" y="130" width="280" height="60" rx="8" fill="#F9FAFB" opacity="0.7"/>
+  <text x="200" y="166" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#6B7280">UI / Presentation</text>
+
+  <!-- Layer 2: Business Logic -->
+  <rect x="60" y="200" width="280" height="60" rx="8" fill="white" filter="url(#vs-shadow)" stroke="#D1D5DB" stroke-width="1.5"/>
+  <rect x="60" y="200" width="280" height="60" rx="8" fill="#F3F4F6" opacity="0.7"/>
+  <text x="200" y="236" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#6B7280">Business Logic</text>
+
+  <!-- Layer 3: Data Access -->
+  <rect x="60" y="270" width="280" height="60" rx="8" fill="white" filter="url(#vs-shadow)" stroke="#D1D5DB" stroke-width="1.5"/>
+  <rect x="60" y="270" width="280" height="60" rx="8" fill="#E5E7EB" opacity="0.5"/>
+  <text x="200" y="306" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#6B7280">Data Access</text>
+
+  <!-- Layer 4: Database -->
+  <rect x="60" y="340" width="280" height="60" rx="8" fill="white" filter="url(#vs-shadow)" stroke="#D1D5DB" stroke-width="1.5"/>
+  <rect x="60" y="340" width="280" height="60" rx="8" fill="#D1D5DB" opacity="0.4"/>
+  <text x="200" y="376" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#6B7280">Database</text>
+
+  <!-- Red arrows crossing ALL layers (showing a feature crossing layers) -->
+  <!-- Feature A arrow -->
+  <line x1="130" y1="125" x2="130" y2="405" stroke="#EF4444" stroke-width="2.5" marker-end="url(#vs-arrow-red)" opacity="0.7"/>
+  <text x="130" y="120" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" font-weight="600" fill="#EF4444">Feature A</text>
+
+  <!-- Feature B arrow -->
+  <line x1="200" y1="125" x2="200" y2="405" stroke="#EF4444" stroke-width="2.5" marker-end="url(#vs-arrow-red)" opacity="0.7"/>
+  <text x="200" y="120" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" font-weight="600" fill="#EF4444">Feature B</text>
+
+  <!-- Feature C arrow -->
+  <line x1="270" y1="125" x2="270" y2="405" stroke="#EF4444" stroke-width="2.5" marker-end="url(#vs-arrow-red)" opacity="0.7"/>
+  <text x="270" y="120" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" font-weight="600" fill="#EF4444">Feature C</text>
+
+  <!-- Problem label -->
+  <rect x="95" y="418" width="210" height="48" rx="8" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+  <text x="200" y="438" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#EF4444">Changes scatter across layers</text>
+  <text x="200" y="454" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#9CA3AF">High coupling between layers, hard to change</text>
+
+  <!-- ========== RIGHT: Vertical Slice Architecture ========== -->
+  <text x="600" y="100" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="#3DD68C">Vertical Slice Architecture</text>
+
+  <!-- Background layer labels (faded) -->
+  <text x="770" y="164" text-anchor="end" font-family="Inter, sans-serif" font-size="9" fill="#D1D5DB" font-weight="500">UI</text>
+  <text x="770" y="234" text-anchor="end" font-family="Inter, sans-serif" font-size="9" fill="#D1D5DB" font-weight="500">Logic</text>
+  <text x="770" y="304" text-anchor="end" font-family="Inter, sans-serif" font-size="9" fill="#D1D5DB" font-weight="500">Data</text>
+  <text x="770" y="374" text-anchor="end" font-family="Inter, sans-serif" font-size="9" fill="#D1D5DB" font-weight="500">DB</text>
+
+  <!-- Horizontal layer lines (faded) -->
+  <line x1="430" y1="190" x2="750" y2="190" stroke="#E5E7EB" stroke-width="1" stroke-dasharray="3,3" opacity="0.5"/>
+  <line x1="430" y1="260" x2="750" y2="260" stroke="#E5E7EB" stroke-width="1" stroke-dasharray="3,3" opacity="0.5"/>
+  <line x1="430" y1="330" x2="750" y2="330" stroke="#E5E7EB" stroke-width="1" stroke-dasharray="3,3" opacity="0.5"/>
+
+  <!-- Slice A (Orange) -->
+  <rect x="440" y="126" width="90" height="274" rx="10" fill="white" filter="url(#vs-shadow)" stroke="#F26522" stroke-width="2"/>
+  <rect x="440" y="126" width="90" height="274" rx="10" fill="#FEF0E6" opacity="0.3"/>
+  <rect x="450" y="132" width="70" height="22" rx="6" fill="#F26522"/>
+  <text x="485" y="147" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="700" fill="white">Slice A</text>
+
+  <!-- Slice A content -->
+  <rect x="454" y="166" width="62" height="16" rx="4" fill="#FEF0E6"/>
+  <text x="485" y="178" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#F26522">Handler</text>
+  <rect x="454" y="226" width="62" height="16" rx="4" fill="#FEF0E6"/>
+  <text x="485" y="238" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#F26522">Logic</text>
+  <rect x="454" y="296" width="62" height="16" rx="4" fill="#FEF0E6"/>
+  <text x="485" y="308" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#F26522">Query</text>
+  <rect x="454" y="362" width="62" height="16" rx="4" fill="#FEF0E6"/>
+  <text x="485" y="374" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#F26522">Store</text>
+
+  <!-- Slice B (Green) -->
+  <rect x="545" y="126" width="90" height="274" rx="10" fill="white" filter="url(#vs-shadow)" stroke="#3DD68C" stroke-width="2"/>
+  <rect x="545" y="126" width="90" height="274" rx="10" fill="#ECFDF5" opacity="0.3"/>
+  <rect x="555" y="132" width="70" height="22" rx="6" fill="#3DD68C"/>
+  <text x="590" y="147" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="700" fill="white">Slice B</text>
+
+  <!-- Slice B content -->
+  <rect x="559" y="166" width="62" height="16" rx="4" fill="#ECFDF5"/>
+  <text x="590" y="178" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#3DD68C">Handler</text>
+  <rect x="559" y="226" width="62" height="16" rx="4" fill="#ECFDF5"/>
+  <text x="590" y="238" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#3DD68C">Logic</text>
+  <rect x="559" y="296" width="62" height="16" rx="4" fill="#ECFDF5"/>
+  <text x="590" y="308" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#3DD68C">Query</text>
+  <rect x="559" y="362" width="62" height="16" rx="4" fill="#ECFDF5"/>
+  <text x="590" y="374" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#3DD68C">Store</text>
+
+  <!-- Slice C (Blue) -->
+  <rect x="650" y="126" width="90" height="274" rx="10" fill="white" filter="url(#vs-shadow)" stroke="#1890FF" stroke-width="2"/>
+  <rect x="650" y="126" width="90" height="274" rx="10" fill="#EBF5FF" opacity="0.3"/>
+  <rect x="660" y="132" width="70" height="22" rx="6" fill="#1890FF"/>
+  <text x="695" y="147" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="700" fill="white">Slice C</text>
+
+  <!-- Slice C content -->
+  <rect x="664" y="166" width="62" height="16" rx="4" fill="#EBF5FF"/>
+  <text x="695" y="178" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#1890FF">Handler</text>
+  <rect x="664" y="226" width="62" height="16" rx="4" fill="#EBF5FF"/>
+  <text x="695" y="238" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#1890FF">Logic</text>
+  <rect x="664" y="296" width="62" height="16" rx="4" fill="#EBF5FF"/>
+  <text x="695" y="308" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#1890FF">Query</text>
+  <rect x="664" y="362" width="62" height="16" rx="4" fill="#EBF5FF"/>
+  <text x="695" y="374" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#1890FF">Store</text>
+
+  <!-- Benefit label -->
+  <rect x="475" y="418" width="250" height="48" rx="8" fill="#ECFDF5" stroke="#A7F3D0" stroke-width="1"/>
+  <text x="600" y="438" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#059669">Each slice is self-contained</text>
+  <text x="600" y="454" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#9CA3AF">Low coupling, independent deployment, easy to change</text>
+</svg>

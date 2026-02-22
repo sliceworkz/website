@@ -7,12 +7,11 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-T4038M686Q');
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Services - Sliceworkz</title>
+  <title>Blog - Sliceworkz</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" type="image/png" href="images/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -50,7 +49,7 @@
           </div>
         </div>
         <a href="open-source.html">Open Source</a>
-        <a href="blog.html">Blog</a>
+        <a href="blog.html" class="active">Blog</a>
         <a href="about.html">About</a>
         <a href="about.html#contact" class="btn btn-primary" style="margin-left:0.5rem;">Contact</a>
       </div>
@@ -62,59 +61,84 @@
 
   <section class="page-hero blue-bg">
     <div class="container">
-      <span class="badge badge-green">Services</span>
-      <h1>Software Delivery Services</h1>
-      <p class="lead" style="max-width:960px;">From modernization to greenfield. We deliver software that works for your business.</p>
+      <span class="badge badge-dark">Blog</span>
+      <h1>Insights &amp; Ideas</h1>
+      <p class="lead">Perspectives on software architecture, AI-native development, and building software that lasts.</p>
     </div>
     <div class="page-hero-geo"></div>
   </section>
 
   <section class="section-light">
     <div class="container">
-      <h2>What we do</h2>
-      <p class="lead mt-2">Four core services covering the full lifecycle of enterprise software, from rescuing legacy systems to building the next generation.</p>
-      <div class="grid mt-8" style="grid-template-columns: 1fr 1fr;">
-        <div class="card">
-          <div class="card-icon green">1</div>
-          <h3>Legacy Modernization</h3>
-          <p>Breathe new life into legacy systems without starting from scratch. We incrementally modernize monoliths and outdated architectures using vertical slice architecture, event sourcing, and domain-driven design, preserving business logic while eliminating technical debt and exponential maintenance costs.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon green">2</div>
-          <h3>Greenfield Development</h3>
-          <p>Greenfield projects built right from day one. We design and deliver custom enterprise applications grounded in your business domain, using AI-first development and event modeling to ensure fast time-to-market, maintainability, and a codebase that scales at linear cost as your business grows.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon green">3</div>
-          <h3>Digitize &amp; Automate</h3>
-          <p>Transform manual and paper-based business processes into streamlined digital workflows. We help organizations identify high-impact digitalization opportunities and deliver tailored solutions that automate operations, improve data visibility, and unlock new business capabilities across the enterprise.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon green">4</div>
-          <h3>Evolutive Maintenance</h3>
-          <p>Keep your applications running smoothly and evolving with your business. We provide ongoing maintenance, performance monitoring, bug resolution, and incremental feature delivery, ensuring your software stays reliable, secure, and aligned with changing requirements without accumulating accidental complexity.</p>
-        </div>
+      <div class="blog-filters">
+        <button class="blog-filter-btn active" data-filter="all">All</button>
+        <button class="blog-filter-btn" data-filter="event-modeling">Event Modeling</button>
+        <button class="blog-filter-btn" data-filter="ddd">DDD</button>
+        <button class="blog-filter-btn" data-filter="event-sourcing">Event Sourcing</button>
+        <button class="blog-filter-btn" data-filter="ai-native">AI-Native</button>
+        <button class="blog-filter-btn" data-filter="vertical-slice">Vertical Slice</button>
+        <button class="blog-filter-btn" data-filter="architecture">Architecture</button>
       </div>
-    </div>
-  </section>
 
-  <section class="section-gray">
-    <div class="container">
-      <span class="badge badge-dark">Project Delivery</span>
-      <h2 class="mt-3">How we deliver</h2>
-      <p class="lead mt-2">Every project we ship embodies these core delivery qualities. No compromises.</p>
-      <div class="grid grid-4 mt-8">
-        <div class="card" style="text-align:center; padding:1.25rem 1rem;">
-          <h4>Business Value from Day One</h4>
+      <div class="grid grid-3 mt-8">
+        <div class="blog-card" data-tags="event-modeling ddd">
+          <img src="images/technique-event-modeling.svg" alt="Event Modeling diagram" class="blog-card-img">
+          <div class="blog-card-body">
+            <div class="blog-card-tags">
+              <span class="tag tag-orange">Event Modeling</span>
+              <span class="tag tag-blue">DDD</span>
+            </div>
+            <h3><a href="blog/event-modeling-blueprint.html">Event Modeling: the Blueprint Your Software Project Needs</a></h3>
+            <p>Most software projects fail not because of bad code, but because nobody truly understood what needed to be built. Event Modeling fixes that.</p>
+          </div>
         </div>
-        <div class="card" style="text-align:center; padding:1.25rem 1rem;">
-          <h4>Rightsized Architecture</h4>
+
+        <div class="blog-card" data-tags="ddd architecture">
+          <img src="images/blog/blog-ddd.svg" alt="Domain-Driven Design diagram" class="blog-card-img">
+          <div class="blog-card-body">
+            <div class="blog-card-tags">
+              <span class="tag tag-blue">DDD</span>
+              <span class="tag tag-green">Architecture</span>
+            </div>
+            <h3><a href="blog/domain-driven-design-business.html">Domain-Driven Design is a Business Strategy, Not a Technical Pattern</a></h3>
+            <p>DDD isn't about entities and repositories. It's about aligning your software with how your business actually works.</p>
+          </div>
         </div>
-        <div class="card" style="text-align:center; padding:1.25rem 1rem;">
-          <h4>High Maintainability</h4>
+
+        <div class="blog-card" data-tags="event-sourcing architecture">
+          <img src="images/blog/blog-event-sourcing.svg" alt="Event Sourcing diagram" class="blog-card-img">
+          <div class="blog-card-body">
+            <div class="blog-card-tags">
+              <span class="tag tag-orange">Event Sourcing</span>
+              <span class="tag tag-green">Architecture</span>
+            </div>
+            <h3><a href="blog/event-sourcing-explained.html">Event Sourcing: Stop Losing Data You Never Knew You Needed</a></h3>
+            <p>Traditional databases overwrite history. Event sourcing keeps every change, giving you a complete audit trail and the power to rebuild any state.</p>
+          </div>
         </div>
-        <div class="card" style="text-align:center; padding:1.25rem 1rem;">
-          <h4>Runtime Freedom</h4>
+
+        <div class="blog-card" data-tags="ai-native vertical-slice">
+          <img src="images/blog/blog-ai-native.svg" alt="AI-Native Development diagram" class="blog-card-img">
+          <div class="blog-card-body">
+            <div class="blog-card-tags">
+              <span class="tag tag-orange">AI-Native</span>
+              <span class="tag tag-blue">Vertical Slice</span>
+            </div>
+            <h3><a href="blog/ai-native-development.html">What AI-Native Development Actually Means</a></h3>
+            <p>It's not about using Copilot. AI-native development means structuring your entire process so AI can contribute at every stage.</p>
+          </div>
+        </div>
+
+        <div class="blog-card" data-tags="vertical-slice event-modeling">
+          <img src="images/blog/blog-vertical-slice.svg" alt="Vertical Slice Architecture diagram" class="blog-card-img">
+          <div class="blog-card-body">
+            <div class="blog-card-tags">
+              <span class="tag tag-green">Vertical Slice</span>
+              <span class="tag tag-orange">Event Modeling</span>
+            </div>
+            <h3><a href="blog/vertical-slice-architecture.html">Vertical Slice Architecture: the End of Layered Spaghetti</a></h3>
+            <p>Stop organising code by technical layer. Organise by feature, and watch complexity become manageable again.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -122,11 +146,11 @@
 
   <section class="cta-section">
     <div class="container">
-      <h2>Let's build something great together</h2>
-      <p class="lead">Whether you need to modernize, build new, or maintain existing systems, we're ready to help.</p>
+      <h2>Want to go deeper?</h2>
+      <p class="lead">Talk to us about how these ideas can transform your next project.</p>
       <div class="cta-buttons">
         <a href="about.html#contact" class="btn btn-primary">Get in touch</a>
-        <a href="solutions.html" class="btn btn-outline">Our solutions</a>
+        <a href="services.html" class="btn btn-outline">Our services</a>
       </div>
     </div>
   </section>
@@ -185,6 +209,28 @@
       </div>
     </div>
   </footer>
+
+  <script>
+  (function() {
+    var filters = document.querySelector('.blog-filters');
+    var cards = document.querySelectorAll('.blog-card');
+    if (!filters) return;
+    filters.addEventListener('click', function(e) {
+      var btn = e.target.closest('.blog-filter-btn');
+      if (!btn) return;
+      filters.querySelector('.active').classList.remove('active');
+      btn.classList.add('active');
+      var filter = btn.getAttribute('data-filter');
+      cards.forEach(function(card) {
+        if (filter === 'all' || card.getAttribute('data-tags').indexOf(filter) !== -1) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  })();
+  </script>
 
 </body>
 </html>
