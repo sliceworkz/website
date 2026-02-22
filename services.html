@@ -17,6 +17,11 @@
   <link rel="icon" type="image/png" href="images/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    @media (max-width: 768px) {
+      .services-grid { grid-template-columns: 1fr !important; }
+    }
+  </style>
 </head>
 <body>
 
@@ -73,7 +78,7 @@
     <div class="container">
       <h2>What we do</h2>
       <p class="lead mt-2">Four core services covering the full lifecycle of enterprise software, from rescuing legacy systems to building the next generation.</p>
-      <div class="grid mt-8" style="grid-template-columns: 1fr 1fr;">
+      <div class="grid services-grid mt-8" style="grid-template-columns: 1fr 1fr;">
         <div class="card">
           <div class="card-icon green">1</div>
           <h3>Legacy Modernization</h3>
