@@ -422,6 +422,9 @@ nav .container {
   gap: 1rem;
   counter-reset: step;
 }
+.process-steps-2col {
+  grid-template-columns: 1fr 1fr;
+}
 
 .process-step {
   position: relative;
@@ -727,6 +730,7 @@ footer ul li a:hover { color: var(--white); }
   }
 
   .comparison { grid-template-columns: 1fr; }
+  .process-steps-2col { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .hero { align-items: flex-start; padding-top: calc(72px + 2rem); }
   .hero h1 { font-size: clamp(2.25rem, 8vw, 3.5rem); }
