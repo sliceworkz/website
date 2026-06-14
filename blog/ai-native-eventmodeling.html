@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>First-Time-Right AI Code: The Deterministic Bridge from Event Model to Code | Sliceworkz Blog</title>
+  <meta name="description" content="Handing an AI a giant spec file and regenerating your app feels like magic until the bill arrives. Event Modeling replaces prompt-and-pray with a repeatable, one-to-one translation from model to code.">
+  <link rel="icon" type="image/png" href="../images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <script>if('serviceWorker' in navigator){navigator.serviceWorker.getRegistrations().then(function(r){r.forEach(function(s){s.unregister()})})}</script>
+
+  <nav>
+    <div class="container">
+      <a href="../index.html" class="logo"><img src="../images/sliceworkz-logo-dark.svg" alt="Sliceworkz" height="28"></a>
+      <div class="nav-links" id="navLinks">
+        <div class="nav-dropdown">
+          <a href="#">Why</a>
+          <div class="dropdown-menu">
+            <a href="../problem.html">The Problem</a>
+            <a href="../promise.html">Our Promise</a>
+            <a href="../results.html">Our Results</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="#">AI-Native Software Factory</a>
+          <div class="dropdown-menu">
+            <a href="../foundations.html">Foundations</a>
+            <a href="../techniques.html">Techniques</a>
+            <a href="../assembly-line.html">Assembly Line</a>
+            <a href="../compared.html">Compared</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="#">Services &amp; Solutions</a>
+          <div class="dropdown-menu">
+            <a href="../services.html">Services</a>
+            <a href="../solutions.html">Solutions</a>
+            <a href="../outcomes.html">Outcomes</a>
+          </div>
+        </div>
+        <a href="../open-source.html">Open Source</a>
+        <a href="../blog.html" class="active">Blog</a>
+        <a href="../about.html">About</a>
+        <a href="../about.html#contact" class="btn btn-primary" style="margin-left:0.5rem;">Contact</a>
+      </div>
+      <button class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <section class="page-hero gray-bg">
+    <div class="container">
+      <a href="../blog.html" class="blog-back-link">&larr; All articles</a>
+      <div class="blog-post-hero-tags">
+        <span class="tag tag-orange">AI-Native</span>
+        <span class="tag tag-green">Event Modeling</span>
+      </div>
+      <h1>First-Time-Right AI Code: the Deterministic Bridge from Event Model to Code</h1>
+      <p class="lead">Handing an AI a giant specification document and asking it to regenerate your application feels like magic, right up until the bill arrives. There is a calmer, cheaper way: stop regenerating, and start translating.</p>
+    </div>
+    <div class="page-hero-geo"></div>
+  </section>
+
+  <section class="section-light">
+    <div class="container">
+      <div class="blog-post-content">
+        <img src="../images/blog/blog-ai-eventmodeling.svg" alt="Diagram showing each Event Modeling slice type mapping one-to-one to a code construct" class="blog-post-img">
+
+        <p>A familiar ritual has taken hold in teams experimenting with AI development. You write one enormous specification file — a sprawling Markdown or HTML document describing every screen, rule, and edge case — you feed it to an agent, and you ask it to produce the application. The first run is genuinely thrilling. Something resembling working software appears in minutes. Then you ask for a change, the agent regenerates, and subtly different code comes out. A rule you relied on yesterday quietly behaves differently today. You tighten the prose, run it again, and watch the token meter spin.</p>
+
+        <p>This is prompt-and-pray, and it has two failure modes baked in. The output is non-deterministic, so the same intent produces different code on each run. And the cost grows with every iteration, because each change means re-reading and re-emitting the whole system. Neither problem is the model's fault. Both come from asking the model to do something it was never going to do reliably: invent an entire architecture from a wall of text.</p>
+
+        <h2>An AI Doesn't Need a Longer Document, It Needs a System</h2>
+
+        <p>The instinct, when results disappoint, is to write more. Add another paragraph clarifying the edge case. Append a section on naming conventions. Paste in three example files. The document swells, and the output gets marginally better and considerably more expensive.</p>
+
+        <p>Predictable generation does not come from volume. It comes from structure. A model produces consistent code when the specification has a consistent shape — when there is a small, fixed vocabulary of things a feature can be, and a known place each of those things belongs in the code. Give the model a system to follow instead of a story to interpret, and the guesswork disappears.</p>
+
+        <p>Event Modeling supplies exactly that system. It describes any information system as a sequence of slices, and every slice is one of just four kinds. There is no fifth case to reason about and no ambiguity about which kind you are looking at. That constraint is the whole point.</p>
+
+        <h2>Four Patterns In, Four Constructs Out</h2>
+
+        <p>The reason Event Modeling and AI generation fit together so cleanly is that the mapping between them is mechanical. Each slice type corresponds to exactly one shape in code. Translate the pattern, and you have the implementation.</p>
+
+        <ul>
+          <li><strong>State Change</strong> becomes a command handler that validates intent and records an event. Input is a command, output is the fact that something happened.</li>
+          <li><strong>State Read</strong> becomes a projection that folds events into a view. Input is a stream of events, output is the data a screen or API needs.</li>
+          <li><strong>Automation</strong> becomes a policy that watches for a condition and issues the next command. Input is a state the system has reached, output is the action it triggers.</li>
+          <li><strong>Translation</strong> becomes an adapter that maps an outside message into your own vocabulary. Input is a foreign payload, output is a command your domain understands.</li>
+        </ul>
+
+        <p>There is no interpretation gap here. A model that has seen this correspondence once does not need to decide <em>how</em> to build the next State Change slice; it follows the same translation it followed for the last one. The specification stops being a prompt to wrestle with and becomes a lookup table to apply.</p>
+
+        <h2>Code That Reads the Same to a Human and a Machine</h2>
+
+        <p>An agreeable side effect of this discipline is that the code it produces is the code a person would want to inherit. The same qualities that let a model write a slice correctly — small surface area, an obvious entry point, no hidden dependencies on the rest of the system — are the qualities that let an engineer open the file six months later and understand it without a tour guide.</p>
+
+        <p>That symmetry matters more than it sounds. AI-native software is not write-once-and-walk-away; it is read, extended, and corrected continuously, by people and agents in turn. If the code is only legible to whichever party wrote it, every handoff costs a translation. When both can read, write, and maintain the same artefact, the handoffs become free.</p>
+
+        <p>Getting there asks for restraint rather than cleverness. Less code, not more. Every construct tied to something the business actually asked for, so that a line of code can be traced back to a line of the model. When the implementation is a faithful echo of the specification, there is simply less to misunderstand.</p>
+
+        <blockquote>
+          <p>"The cheapest code to generate, review, and maintain is the code that maps directly onto a rule the business recognises. Everything else is overhead you are paying a model to invent and a colleague to decode."</p>
+        </blockquote>
+
+        <h2>Coherent Context Is What Keeps Generation Honest</h2>
+
+        <p>A model is only as good as the context it can hold in view. Scatter a single feature across a controller here, a service there, a shared data model somewhere else, and a handful of utility classes, and you force the agent to assemble the picture from fragments — exactly the situation in which it starts to guess.</p>
+
+        <p>Organise the system the way Event Modeling suggests and the context arrives pre-packaged. Modules line up with business capabilities, so the boundaries in the code match the boundaries in the conversation. Each feature lives in its own vertical slice, with its command, its rules, its events, its read model, and its tests gathered in one place. When an agent works on that feature, everything it needs is in front of it and nothing it doesn't need is in the way. People navigate the codebase the same way, which is not a coincidence — coherent context is just good context, whoever is reading.</p>
+
+        <h2>Letting Go of the Scaffolding Built for Humans</h2>
+
+        <p>Much of what we treat as software craftsmanship was invented to help large teams of people cope with large codebases. Shared information models, layered architectures, aggressive de-duplication, the whole vocabulary of "clean" abstraction — these were coping strategies for human working memory and human coordination. They earned their place.</p>
+
+        <p>But several of them work directly against the grain of AI generation. A shared model couples every feature that touches it, so a change in one place ripples unpredictably into others — and an agent regenerating one slice has to reason about all of them. De-duplication for its own sake invents abstractions that mean nothing in business terms, adding indirection the model must follow and a reader must unwind. Layering spreads a single feature across the stack, breaking the coherent context that made generation reliable in the first place.</p>
+
+        <p>The principle worth keeping is the one that was always doing the real work: avoid coupling. Two slices that never reach into each other can each be changed, regenerated, and verified in isolation. That isolation is worth far more than the handful of lines you might save by folding them into a shared helper. Reuse is a convenience; independence is a property you can build on.</p>
+
+        <h2>The Economics: Translate Once, Not Forever</h2>
+
+        <p>There is a hard-nosed reason to care about all of this, and it is the price of a token. Models capable enough to do serious work are not getting cheaper as fast as they are getting better, usage-based and API billing increasingly sits on top of flat subscriptions, and the most capable tiers cost the most to run. The trend line points one way.</p>
+
+        <p>Against that backdrop, the regenerate-from-a-giant-spec approach ages badly. Every iteration re-reads the entire specification and re-emits the entire system, so your cost scales with the size of the application and the frequency of change — precisely the two things that grow over a project's life. It is a habit that gets more expensive exactly as you come to depend on it.</p>
+
+        <p>Pattern translation has the opposite shape. The expensive thinking happens once, when you establish how each slice type turns into code. After that, producing the next slice is a cheap, bounded operation: read one small specification, apply one known transformation, emit one small slice. You are paying to translate a feature, not to re-imagine the system. First-time-right stops being an aspiration and becomes the default, because there is far less room for the model to wander.</p>
+
+        <h2>How to Bootstrap the Translation</h2>
+
+        <p>The method that makes this work in practice is refreshingly low-tech. You begin with the event model, the shared blueprint everyone agrees describes the system. Then, before asking an agent to mass-produce anything, you build a small set of reference slices by hand — or interactively, working alongside an agent, which is often faster — covering at least one slice of each of the four types.</p>
+
+        <p>You polish those reference slices until they are unarguably right: the structure you want, the conventions you want, the level of simplicity you want. This is the one place worth spending human attention, because everything downstream inherits from it. Once those examples exist, the agent has both halves of the dictionary in front of it — the slice as a unit in the model, and the matching slice as a unit in the code. From there its job is no longer creative; it is repetition. It applies the same translation you already validated, slice after slice, and because the transformation is fixed, the results stay consistent.</p>
+
+        <p>This is the same insight that runs through our <a href="../assembly-line.html">assembly line</a>: do the hard thinking once, encode it as a repeatable step, and let the line carry it forward without drift.</p>
+
+        <h2>Keep Your Freedom to Switch</h2>
+
+        <p>One last discipline protects everything above. The translation must not depend on any single vendor's tool, model, or bag of prompting tricks. The moment your process relies on a proprietary feature or a model-specific incantation, you have traded the freedom to move for a short-term convenience, and that trade tends to look worse over time as prices and capabilities shift underneath you.</p>
+
+        <p>A clean event model plus a small set of pattern-to-code translations asks very little of the underlying model. It is, by design, ordinary work: take a well-described slice, apply a known mapping, produce a known shape. Any competent model can do it, which means you are free to choose the best, the cheapest, or the most available one on any given day, and to change your mind tomorrow. The specification is the asset. The model is a replaceable part.</p>
+
+        <p>That is the quiet promise of pairing Event Modeling with AI-native development. The blueprint is not a prompt you burn tokens re-running until it behaves. It is a translation you establish once and reuse indefinitely — predictable, legible to humans and machines alike, and yours to carry from one tool to the next.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-gray blog-related">
+    <div class="container">
+      <h2>Keep reading</h2>
+      <div class="grid grid-3">
+        <a href="event-modeling-blueprint.html" class="blog-card">
+          <img src="../images/technique-event-modeling.svg" alt="Event Modeling" class="blog-card-img">
+          <div class="blog-card-body">
+            <div class="blog-card-tags">
+              <span class="tag tag-orange">Event Modeling</span>
+              <span class="tag tag-blue">DDD</span>
+            </div>
+            <h3>Event Modeling: the Blueprint Your Software Project Needs</h3>
+            <p>Most software projects fail not because of bad code, but because nobody truly understood what needed to be built.</p>
+          </div>
+        </a>
+        <a href="vertical-slice-architecture.html" class="blog-card">
+          <img src="../images/blog/blog-vertical-slice.svg" alt="Vertical Slice Architecture" class="blog-card-img">
+          <div class="blog-card-body">
+            <div class="blog-card-tags">
+              <span class="tag tag-green">Vertical Slice</span>
+              <span class="tag tag-orange">Event Modeling</span>
+            </div>
+            <h3>Vertical Slice Architecture: the End of Layered Spaghetti</h3>
+            <p>Stop organising code by technical layer. Organise by feature, and watch complexity become manageable again.</p>
+          </div>
+        </a>
+        <a href="ai-native-development.html" class="blog-card">
+          <img src="../images/blog/blog-ai-native.svg" alt="AI-Native Development" class="blog-card-img">
+          <div class="blog-card-body">
+            <div class="blog-card-tags">
+              <span class="tag tag-orange">AI-Native</span>
+              <span class="tag tag-blue">Vertical Slice</span>
+            </div>
+            <h3>What AI-Native Development Actually Means</h3>
+            <p>It's not about adding an AI coding assistant. It's about structuring your entire process so AI can contribute at every stage.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Want to go deeper?</h2>
+      <p class="lead">Talk to us about how these ideas can transform your next project.</p>
+      <div class="cta-buttons">
+        <a href="../about.html#contact" class="btn btn-primary">Get in touch</a>
+        <a href="../services.html" class="btn btn-outline">Our services</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo"><img src="../images/sliceworkz-logo-white.svg" alt="Sliceworkz" height="28"></div>
+          <p>Reinventing software development.<br>Focus on business.<br>Build with AI.</p>
+          <p class="mt-3" style="font-size:0.8125rem;color:rgba(255,255,255,0.4);">A brand of <a href="https://www.xt-i.com/" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.6);">XTi &ndash; Xtreme Integrations NV</a></p>
+          <div class="mt-3" style="display:flex;gap:1rem;">
+            <a href="https://www.linkedin.com/showcase/sliceworkz/about/" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.6);font-size:0.875rem;font-weight:600;">LinkedIn</a>
+          </div>
+        </div>
+        <div>
+          <h4>Sitemap</h4>
+          <ul>
+            <li><a href="../problem.html">The Problem</a></li>
+            <li><a href="../promise.html">Our Promise</a></li>
+            <li><a href="../results.html">Our Results</a></li>
+            <li><a href="../foundations.html">Foundations</a></li>
+            <li><a href="../techniques.html">Techniques</a></li>
+            <li><a href="../compared.html">Compared</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Services &amp; Solutions</h4>
+          <ul>
+            <li><a href="../services.html">Services</a></li>
+            <li><a href="../solutions.html">Solutions</a></li>
+            <li><a href="../assembly-line.html">Assembly Line</a></li>
+            <li><a href="../outcomes.html">Outcomes</a></li>
+            <li><a href="../open-source.html">Open Source</a></li>
+            <li><a href="../blog.html">Blog</a></li>
+            <li><a href="../about.html">About Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:+3238719960">+32 3 871 99 60</a></li>
+            <li><a href="mailto:info@sliceworkz.com">info@sliceworkz.com</a></li>
+          </ul>
+          <h4 class="mt-4">Offices (Belgium)</h4>
+          <ul>
+            <li style="color:rgba(255,255,255,0.5);font-size:0.8125rem;">Veldkant 33A, 2550 Kontich</li>
+            <li style="color:rgba(255,255,255,0.5);font-size:0.8125rem;">Guldensporenpark, Merelbeke</li>
+            <li style="color:rgba(255,255,255,0.5);font-size:0.8125rem;">Corda Campus, Hasselt</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; XTi &ndash; Xtreme Integrations NV &middot; VAT BE 474.267.543</span>
+        <span>Sliceworkz &ndash; Reinventing Software Development</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

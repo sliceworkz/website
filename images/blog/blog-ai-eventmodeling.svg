@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <marker id="em-arrow" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0 0, 9 3.5, 0 7" fill="#9CA3AF"/>
+    </marker>
+    <filter id="em-shadow" x="-6%" y="-6%" width="112%" height="124%">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#000" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" rx="16" ry="16" fill="#F9FAFB"/>
+
+  <!-- Title -->
+  <text x="400" y="42" text-anchor="middle" font-family="Inter, sans-serif" font-size="22" font-weight="700" fill="#1E1E1E">One Model, One Mapping</text>
+  <text x="400" y="64" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#9CA3AF">Every Event Modeling pattern maps 1:1 to one code construct</text>
+
+  <!-- Column headers -->
+  <text x="175" y="96" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#6B7280" letter-spacing="1">EVENT MODEL SLICE</text>
+  <text x="625" y="96" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#6B7280" letter-spacing="1">VERTICAL SLICE OF CODE</text>
+
+  <!-- ===== Row 1: State Change (orange) ===== -->
+  <g filter="url(#em-shadow)">
+    <rect x="60" y="110" width="230" height="62" rx="10" fill="white" stroke="#F26522" stroke-width="2"/>
+    <rect x="60" y="110" width="6" height="62" rx="3" fill="#F26522"/>
+    <text x="82" y="138" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#1E1E1E">State Change</text>
+    <text x="82" y="157" font-family="Inter, sans-serif" font-size="11" fill="#F26522" font-weight="500">command &#8594; event</text>
+  </g>
+  <line x1="296" y1="141" x2="504" y2="141" stroke="#9CA3AF" stroke-width="2" marker-end="url(#em-arrow)"/>
+  <rect x="378" y="131" width="44" height="20" rx="10" fill="#1E1E1E"/>
+  <text x="400" y="145" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="700" fill="white">1 : 1</text>
+  <g filter="url(#em-shadow)">
+    <rect x="510" y="110" width="230" height="62" rx="10" fill="white" stroke="#F26522" stroke-width="2"/>
+    <rect x="510" y="110" width="6" height="62" rx="3" fill="#F26522"/>
+    <text x="532" y="138" font-family="'JetBrains Mono', Menlo, monospace" font-size="13" font-weight="700" fill="#1E1E1E">handle(command)</text>
+    <text x="532" y="157" font-family="Inter, sans-serif" font-size="11" fill="#6B7280" font-weight="500">decide &#43; emit event</text>
+  </g>
+
+  <!-- ===== Row 2: State Read (blue) ===== -->
+  <g filter="url(#em-shadow)">
+    <rect x="60" y="185" width="230" height="62" rx="10" fill="white" stroke="#1890FF" stroke-width="2"/>
+    <rect x="60" y="185" width="6" height="62" rx="3" fill="#1890FF"/>
+    <text x="82" y="213" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#1E1E1E">State Read</text>
+    <text x="82" y="232" font-family="Inter, sans-serif" font-size="11" fill="#1890FF" font-weight="500">events &#8594; view</text>
+  </g>
+  <line x1="296" y1="216" x2="504" y2="216" stroke="#9CA3AF" stroke-width="2" marker-end="url(#em-arrow)"/>
+  <rect x="378" y="206" width="44" height="20" rx="10" fill="#1E1E1E"/>
+  <text x="400" y="220" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="700" fill="white">1 : 1</text>
+  <g filter="url(#em-shadow)">
+    <rect x="510" y="185" width="230" height="62" rx="10" fill="white" stroke="#1890FF" stroke-width="2"/>
+    <rect x="510" y="185" width="6" height="62" rx="3" fill="#1890FF"/>
+    <text x="532" y="213" font-family="'JetBrains Mono', Menlo, monospace" font-size="13" font-weight="700" fill="#1E1E1E">project(events)</text>
+    <text x="532" y="232" font-family="Inter, sans-serif" font-size="11" fill="#6B7280" font-weight="500">read model &#43; query</text>
+  </g>
+
+  <!-- ===== Row 3: Automation (green) ===== -->
+  <g filter="url(#em-shadow)">
+    <rect x="60" y="260" width="230" height="62" rx="10" fill="white" stroke="#3DD68C" stroke-width="2"/>
+    <rect x="60" y="260" width="6" height="62" rx="3" fill="#3DD68C"/>
+    <text x="82" y="288" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#1E1E1E">Automation</text>
+    <text x="82" y="307" font-family="Inter, sans-serif" font-size="11" fill="#15A66A" font-weight="500">state &#8594; command</text>
+  </g>
+  <line x1="296" y1="291" x2="504" y2="291" stroke="#9CA3AF" stroke-width="2" marker-end="url(#em-arrow)"/>
+  <rect x="378" y="281" width="44" height="20" rx="10" fill="#1E1E1E"/>
+  <text x="400" y="295" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="700" fill="white">1 : 1</text>
+  <g filter="url(#em-shadow)">
+    <rect x="510" y="260" width="230" height="62" rx="10" fill="white" stroke="#3DD68C" stroke-width="2"/>
+    <rect x="510" y="260" width="6" height="62" rx="3" fill="#3DD68C"/>
+    <text x="532" y="288" font-family="'JetBrains Mono', Menlo, monospace" font-size="13" font-weight="700" fill="#1E1E1E">react(state)</text>
+    <text x="532" y="307" font-family="Inter, sans-serif" font-size="11" fill="#6B7280" font-weight="500">policy &#43; new command</text>
+  </g>
+
+  <!-- ===== Row 4: Translation (dark) ===== -->
+  <g filter="url(#em-shadow)">
+    <rect x="60" y="335" width="230" height="62" rx="10" fill="white" stroke="#1E1E1E" stroke-width="2"/>
+    <rect x="60" y="335" width="6" height="62" rx="3" fill="#1E1E1E"/>
+    <text x="82" y="363" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#1E1E1E">Translation</text>
+    <text x="82" y="382" font-family="Inter, sans-serif" font-size="11" fill="#6B7280" font-weight="500">external &#8594; command</text>
+  </g>
+  <line x1="296" y1="366" x2="504" y2="366" stroke="#9CA3AF" stroke-width="2" marker-end="url(#em-arrow)"/>
+  <rect x="378" y="356" width="44" height="20" rx="10" fill="#1E1E1E"/>
+  <text x="400" y="370" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="700" fill="white">1 : 1</text>
+  <g filter="url(#em-shadow)">
+    <rect x="510" y="335" width="230" height="62" rx="10" fill="white" stroke="#1E1E1E" stroke-width="2"/>
+    <rect x="510" y="335" width="6" height="62" rx="3" fill="#1E1E1E"/>
+    <text x="532" y="363" font-family="'JetBrains Mono', Menlo, monospace" font-size="13" font-weight="700" fill="#1E1E1E">adapt(payload)</text>
+    <text x="532" y="382" font-family="Inter, sans-serif" font-size="11" fill="#6B7280" font-weight="500">translator &#43; command</text>
+  </g>
+
+  <!-- Bottom takeaway badge -->
+  <rect x="232" y="438" width="336" height="32" rx="16" fill="#1E1E1E"/>
+  <text x="400" y="459" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="white">Same patterns in &#8594; same code out, every time</text>
+</svg>
